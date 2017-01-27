@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -160,6 +164,20 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\innovation4austria.authentication\innovation4austria.authentication.csproj">
+      <Project>{886be15f-a3c4-420b-a4aa-fe50d316036a}</Project>
+      <Name>innovation4austria.authentication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\innovation4austria.data\innovation4austria.data.csproj">
+      <Project>{5a8bce74-f153-454e-9b5a-d028c9921b95}</Project>
+      <Name>innovation4austria.data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\innovation4austria.logic\innovation4austria.logic.csproj">
+      <Project>{65e40b86-b0a9-495b-ad1d-0c6c31564169}</Project>
+      <Name>innovation4austria.logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -174,7 +192,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61132</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -1,0 +1,13 @@
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\innovation4austria.logic.dll.config
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\innovation4austria.logic.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\innovation4austria.logic.pdb
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\EntityFramework.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\innovation4austria.data.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\log4net.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\innovation4austria.data.pdb
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\EntityFramework.xml
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\log4net.xml
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\bin\Debug\de\EntityFramework.resources.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\obj\Debug\innovation4austria.logic.csprojResolveAssemblyReference.cache
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\obj\Debug\innovation4austria.logic.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.logic\obj\Debug\innovation4austria.logic.pdb

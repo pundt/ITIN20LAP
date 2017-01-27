@@ -63,7 +63,7 @@ GO
 
 ALTER TABLE [BillDetails]
 ADD
-CONSTRAINT PK_Booking
+CONSTRAINT PK_BillDetails
 PRIMARY KEY (idBookingDetail, idBill);
 GO
 

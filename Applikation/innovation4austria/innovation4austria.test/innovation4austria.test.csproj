@@ -53,6 +53,16 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\innovation4austria.data\innovation4austria.data.csproj">
+      <Project>{5a8bce74-f153-454e-9b5a-d028c9921b95}</Project>
+      <Name>innovation4austria.data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\innovation4austria.logic\innovation4austria.logic.csproj">
+      <Project>{65e40b86-b0a9-495b-ad1d-0c6c31564169}</Project>
+      <Name>innovation4austria.logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

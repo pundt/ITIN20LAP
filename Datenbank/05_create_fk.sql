@@ -89,4 +89,3 @@ FOREIGN KEY (idUser)
 REFERENCES Users(id);
 GO
 
-

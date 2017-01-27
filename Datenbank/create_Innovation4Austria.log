@@ -1,6 +1,6 @@
 ECHO ist ausgeschaltet (OFF).
 . 
-"starting database creation 15:06:25,31" 
+"starting database creation 11:17:00,65" 
 . 
 "try dropping database" 
 Der Datenbankkontext wurde in 'master' ge„ndert.
@@ -18,10 +18,6 @@ Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
  
 "try creating primary keys" 
 Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
-Meldung '2714', Ebene '16', Status '5', Server 'LAPTOP\SQLEXPRESS', Zeile 2
-'In der Datenbank ist bereits ein Objekt mit dem Namen 'PK_Booking' vorhanden.'
-Meldung '1750', Ebene '16', Status '1', Server 'LAPTOP\SQLEXPRESS', Zeile 2
-'Die Einschr„nkung konnte nicht erstellt werden. Siehe vorherige Fehler.'
  
  
 "try creating foreign keys" 
@@ -55,5 +51,5 @@ Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
  
  
 . 
-"stopping database creation 15:06:30,85" 
+"stopping database creation 11:17:06,29" 
 . 

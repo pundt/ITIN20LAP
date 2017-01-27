@@ -86,7 +86,8 @@ create table [Bills] (
 
 create table [BillDetails] (
 	idBookingDetail int not null,
-	idBill int not null
+	idBill int not null,
+	CONSTRAINT UQ_BookingDetail UNIQUE (idBookingDetail)
 );
 
 

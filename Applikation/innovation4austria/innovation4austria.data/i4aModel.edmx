@@ -4,9 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="innovation4austriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Während der Generierung sind Fehler aufgetreten:
-Warnung 6002: Für Tabelle/Sicht 'innovation4austria.dbo.BillDetails' ist kein Primärschlüssel definiert. Der Schlüssel wurde abgeleitet, und die Definition wurde als schreibgeschützte Tabelle/Sicht erstellt.-->
+    <Schema Namespace="innovation4austriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BillDetails">
           <Key>
             <PropertyRef Name="idBookingDetail" />
@@ -276,6 +274,7 @@ Warnung 6002: Für Tabelle/Sicht 'innovation4austria.dbo.BillDetails' ist kein P
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="innovation4austriaModelStoreContainer">
+          <EntitySet Name="BillDetails" EntityType="Self.BillDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookingDetails" EntityType="Self.BookingDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
@@ -287,12 +286,6 @@ Warnung 6002: Für Tabelle/Sicht 'innovation4austria.dbo.BillDetails' ist kein P
           <EntitySet Name="RoomFacilities" EntityType="Self.RoomFacilities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BillDetails" EntityType="Self.BillDetails" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[BillDetails].[idBookingDetail] AS [idBookingDetail], 
-[BillDetails].[idBill] AS [idBill]
-FROM [dbo].[BillDetails] AS [BillDetails]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_BillDetails_Bill" Association="Self.FK_BillDetails_Bill">
             <End Role="Bills" EntitySet="Bills" />
             <End Role="BillDetails" EntitySet="BillDetails" />
@@ -342,8 +335,7 @@ FROM [dbo].[BillDetails] AS [BillDetails]</DefiningQuery>
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="innovation4austriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
