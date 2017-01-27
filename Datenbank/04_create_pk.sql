@@ -1,0 +1,75 @@
+USE innovation4austria;
+GO
+
+ALTER TABLE [Users]
+ADD
+CONSTRAINT PK_User
+PRIMARY KEY (id);
+GO
+
+ALTER TABLE [Roles]
+ADD
+CONSTRAINT PK_Roles
+PRIMARY KEY (id);
+GO
+
+ALTER TABLE [Companies]
+ADD
+CONSTRAINT PK_Company
+PRIMARY KEY (id);
+GO
+
+ALTER TABLE [Buildings]
+ADD
+CONSTRAINT PK_Building
+PRIMARY KEY (id);
+GO
+
+ALTER TABLE [Rooms]
+ADD
+CONSTRAINT PK_Room
+PRIMARY KEY (id);
+GO
+
+ALTER TABLE [Facilities]
+ADD
+CONSTRAINT PK_Facility
+PRIMARY KEY (id);
+GO
+
+ALTER TABLE [RoomFacilities]
+ADD
+CONSTRAINT PK_RoomFacility
+PRIMARY KEY (idRoom, idFacility);
+GO
+
+ALTER TABLE [Bookings]
+ADD
+CONSTRAINT PK_Booking
+PRIMARY KEY (id);
+GO
+
+ALTER TABLE [BookingDetails]
+ADD
+CONSTRAINT PK_BookingDetail
+PRIMARY KEY (id);
+GO
+
+ALTER TABLE [Bills]
+ADD
+CONSTRAINT PK_Bill
+PRIMARY KEY (id);
+GO
+
+ALTER TABLE [BillDetails]
+ADD
+CONSTRAINT PK_Booking
+PRIMARY KEY (idBookingDetail, idBill);
+GO
+
+
+ALTER TABLE [Log]
+ADD
+CONSTRAINT PK_Log
+PRIMARY KEY (id);
+GO

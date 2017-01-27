@@ -1,0 +1,832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="innovation4austriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Während der Generierung sind Fehler aufgetreten:
+Warnung 6002: Für Tabelle/Sicht 'innovation4austria.dbo.BillDetails' ist kein Primärschlüssel definiert. Der Schlüssel wurde abgeleitet, und die Definition wurde als schreibgeschützte Tabelle/Sicht erstellt.-->
+        <EntityType Name="BillDetails">
+          <Key>
+            <PropertyRef Name="idBookingDetail" />
+            <PropertyRef Name="idBill" />
+          </Key>
+          <Property Name="idBookingDetail" Type="int" Nullable="false" />
+          <Property Name="idBill" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bills">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="createDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="fromDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="toDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="idCompany" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BookingDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idBooking" Type="int" Nullable="false" />
+          <Property Name="date" Type="smalldatetime" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bookings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCompany" Type="int" Nullable="false" />
+          <Property Name="idRoom" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Buildings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="street" Type="nvarchar" MaxLength="100" />
+          <Property Name="number" Type="nvarchar" MaxLength="100" />
+          <Property Name="city" Type="nvarchar" MaxLength="100" />
+          <Property Name="zip" Type="nvarchar" MaxLength="100" />
+          <Property Name="buildingName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="orderNumber" Type="int" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="street" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="number" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="zip" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facilities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="facilityName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="orderNumber" Type="int" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Thread" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Level" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Logger" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Exception" Type="varchar" MaxLength="2000" />
+          <Property Name="idUser" Type="int" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rolename" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoomFacilities">
+          <Key>
+            <PropertyRef Name="idRoom" />
+            <PropertyRef Name="idFacility" />
+          </Key>
+          <Property Name="idRoom" Type="int" Nullable="false" />
+          <Property Name="idFacility" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idBuilding" Type="int" Nullable="false" />
+          <Property Name="size" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="pricePerDay" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="roomName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="orderNumber" Type="int" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idRole" Type="int" Nullable="false" />
+          <Property Name="idCompany" Type="int" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="varbinary" MaxLength="1000" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BillDetails_Bill">
+          <End Role="Bills" Type="Self.Bills" Multiplicity="1" />
+          <End Role="BillDetails" Type="Self.BillDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bills">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BillDetails">
+              <PropertyRef Name="idBill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillDetails_BookingDetail">
+          <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="1" />
+          <End Role="BillDetails" Type="Self.BillDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookingDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BillDetails">
+              <PropertyRef Name="idBookingDetail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bills_Companies">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingDetails_Booking">
+          <End Role="Bookings" Type="Self.Bookings" Multiplicity="1" />
+          <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bookings">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BookingDetails">
+              <PropertyRef Name="idBooking" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookings_Company">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bookings">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookings_Room">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+          <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bookings">
+              <PropertyRef Name="idRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Log_User">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Log" Type="Self.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Building">
+          <End Role="Buildings" Type="Self.Buildings" Multiplicity="1" />
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buildings">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="idBuilding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomFacilities_Facilities">
+          <End Role="Facilities" Type="Self.Facilities" Multiplicity="1" />
+          <End Role="RoomFacilities" Type="Self.RoomFacilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facilities">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoomFacilities">
+              <PropertyRef Name="idFacility" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomFacilities_Room">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+          <End Role="RoomFacilities" Type="Self.RoomFacilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoomFacilities">
+              <PropertyRef Name="idRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Company">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="idRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="innovation4austriaModelStoreContainer">
+          <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookingDetails" EntityType="Self.BookingDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buildings" EntityType="Self.Buildings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facilities" EntityType="Self.Facilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomFacilities" EntityType="Self.RoomFacilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillDetails" EntityType="Self.BillDetails" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[BillDetails].[idBookingDetail] AS [idBookingDetail], 
+[BillDetails].[idBill] AS [idBill]
+FROM [dbo].[BillDetails] AS [BillDetails]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BillDetails_Bill" Association="Self.FK_BillDetails_Bill">
+            <End Role="Bills" EntitySet="Bills" />
+            <End Role="BillDetails" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillDetails_BookingDetail" Association="Self.FK_BillDetails_BookingDetail">
+            <End Role="BookingDetails" EntitySet="BookingDetails" />
+            <End Role="BillDetails" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bills_Companies" Association="Self.FK_Bills_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingDetails_Booking" Association="Self.FK_BookingDetails_Booking">
+            <End Role="Bookings" EntitySet="Bookings" />
+            <End Role="BookingDetails" EntitySet="BookingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookings_Company" Association="Self.FK_Bookings_Company">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Bookings" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookings_Room" Association="Self.FK_Bookings_Room">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Bookings" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_User" Association="Self.FK_Log_User">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Log" EntitySet="Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Building" Association="Self.FK_Room_Building">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomFacilities_Facilities" Association="Self.FK_RoomFacilities_Facilities">
+            <End Role="Facilities" EntitySet="Facilities" />
+            <End Role="RoomFacilities" EntitySet="RoomFacilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomFacilities_Room" Association="Self.FK_RoomFacilities_Room">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="RoomFacilities" EntitySet="RoomFacilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Company" Association="Self.FK_User_Company">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="innovation4austriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="From" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="To" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Company" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Bills_Companies" FromRole="Bills" ToRole="Companies" />
+          <NavigationProperty Name="AllBookingDetails" Relationship="Self.BillDetails" FromRole="Bills" ToRole="BookingDetails" />
+        </EntityType>
+        <EntityType Name="BookingDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Booking" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Booking" Relationship="Self.FK_BookingDetails_Booking" FromRole="BookingDetails" ToRole="Bookings" />
+          <NavigationProperty Name="Bills" Relationship="Self.BillDetails" FromRole="BookingDetails" ToRole="Bills" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Company" Type="Int32" Nullable="false" />
+          <Property Name="ID_Room" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AllBookingDetails" Relationship="Self.FK_BookingDetails_Booking" FromRole="Bookings" ToRole="BookingDetails" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Bookings_Company" FromRole="Bookings" ToRole="Companies" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_Bookings_Room" FromRole="Bookings" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AllRooms" Relationship="Self.FK_Room_Building" FromRole="Buildings" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AllBills" Relationship="Self.FK_Bills_Companies" FromRole="Companies" ToRole="Bills" />
+          <NavigationProperty Name="AllBookings" Relationship="Self.FK_Bookings_Company" FromRole="Companies" ToRole="Bookings" />
+          <NavigationProperty Name="AllUsers" Relationship="Self.FK_User_Company" FromRole="Companies" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Facility">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AllRoomFacilities" Relationship="Self.FK_RoomFacilities_Facilities" FromRole="Facilities" ToRole="RoomFacilities" />
+        </EntityType>
+        <EntityType Name="LogEntry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Thread" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Logger" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Exception" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ID_User" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Log_User" FromRole="Log" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AllUsers" Relationship="Self.FK_User_Role" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="RoomFacility">
+          <Key>
+            <PropertyRef Name="ID_Roome" />
+            <PropertyRef Name="ID_Facility" />
+          </Key>
+          <Property Name="ID_Roome" Type="Int32" Nullable="false" />
+          <Property Name="ID_Facility" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Facility" Relationship="Self.FK_RoomFacilities_Facilities" FromRole="RoomFacilities" ToRole="Facilities" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_RoomFacilities_Room" FromRole="RoomFacilities" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Building" Type="Int32" Nullable="false" />
+          <Property Name="Size" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PricePerDay" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="RoomName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AllBookings" Relationship="Self.FK_Bookings_Room" FromRole="Rooms" ToRole="Bookings" />
+          <NavigationProperty Name="Building" Relationship="Self.FK_Room_Building" FromRole="Rooms" ToRole="Buildings" />
+          <NavigationProperty Name="AllRoomFacilities" Relationship="Self.FK_RoomFacilities_Room" FromRole="Rooms" ToRole="RoomFacilities" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Role" Type="Int32" Nullable="false" />
+          <Property Name="ID_Company" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="Binary" MaxLength="1000" FixedLength="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_User_Company" FromRole="Users" ToRole="Companies" />
+          <NavigationProperty Name="AllLogEntries" Relationship="Self.FK_Log_User" FromRole="Users" ToRole="Log" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_Bills_Companies">
+          <End Role="Companies" Type="innovation4austriaModel.Company" Multiplicity="1" />
+          <End Role="Bills" Type="innovation4austriaModel.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="ID_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingDetails_Booking">
+          <End Role="Bookings" Type="innovation4austriaModel.Booking" Multiplicity="1" />
+          <End Role="BookingDetails" Type="innovation4austriaModel.BookingDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bookings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookingDetails">
+              <PropertyRef Name="ID_Booking" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookings_Company">
+          <End Role="Companies" Type="innovation4austriaModel.Company" Multiplicity="1" />
+          <End Role="Bookings" Type="innovation4austriaModel.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bookings">
+              <PropertyRef Name="ID_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookings_Room">
+          <End Role="Rooms" Type="innovation4austriaModel.Room" Multiplicity="1" />
+          <End Role="Bookings" Type="innovation4austriaModel.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bookings">
+              <PropertyRef Name="ID_Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Building">
+          <End Role="Buildings" Type="innovation4austriaModel.Building" Multiplicity="1" />
+          <End Role="Rooms" Type="innovation4austriaModel.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buildings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="ID_Building" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Company">
+          <End Role="Companies" Type="innovation4austriaModel.Company" Multiplicity="1" />
+          <End Role="Users" Type="innovation4austriaModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ID_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomFacilities_Facilities">
+          <End Role="Facilities" Type="innovation4austriaModel.Facility" Multiplicity="1" />
+          <End Role="RoomFacilities" Type="innovation4austriaModel.RoomFacility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facilities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RoomFacilities">
+              <PropertyRef Name="ID_Facility" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Log_User">
+          <End Role="Users" Type="innovation4austriaModel.User" Multiplicity="0..1" />
+          <End Role="Log" Type="innovation4austriaModel.LogEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Roles" Type="innovation4austriaModel.Role" Multiplicity="1" />
+          <End Role="Users" Type="innovation4austriaModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ID_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomFacilities_Room">
+          <End Role="Rooms" Type="innovation4austriaModel.Room" Multiplicity="1" />
+          <End Role="RoomFacilities" Type="innovation4austriaModel.RoomFacility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RoomFacilities">
+              <PropertyRef Name="ID_Roome" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BillDetails">
+          <End Role="Bills" Type="innovation4austriaModel.Bill" Multiplicity="*" />
+          <End Role="BookingDetails" Type="innovation4austriaModel.BookingDetail" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="innovation4austriaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AllBills" EntityType="innovation4austriaModel.Bill" />
+          <EntitySet Name="AllBookingDetails" EntityType="innovation4austriaModel.BookingDetail" />
+          <EntitySet Name="AllBookings" EntityType="innovation4austriaModel.Booking" />
+          <EntitySet Name="AllBuildings" EntityType="innovation4austriaModel.Building" />
+          <EntitySet Name="AllCompanies" EntityType="innovation4austriaModel.Company" />
+          <EntitySet Name="AllFacilities" EntityType="innovation4austriaModel.Facility" />
+          <EntitySet Name="AllLogEntries" EntityType="innovation4austriaModel.LogEntry" />
+          <EntitySet Name="AllRoles" EntityType="innovation4austriaModel.Role" />
+          <EntitySet Name="AllRoomFacilities" EntityType="innovation4austriaModel.RoomFacility" />
+          <EntitySet Name="AllRooms" EntityType="innovation4austriaModel.Room" />
+          <EntitySet Name="AllUsers" EntityType="innovation4austriaModel.User" />
+          <AssociationSet Name="FK_Bills_Companies" Association="Self.FK_Bills_Companies">
+            <End Role="Companies" EntitySet="AllCompanies" />
+            <End Role="Bills" EntitySet="AllBills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingDetails_Booking" Association="Self.FK_BookingDetails_Booking">
+            <End Role="Bookings" EntitySet="AllBookings" />
+            <End Role="BookingDetails" EntitySet="AllBookingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookings_Company" Association="Self.FK_Bookings_Company">
+            <End Role="Companies" EntitySet="AllCompanies" />
+            <End Role="Bookings" EntitySet="AllBookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookings_Room" Association="Self.FK_Bookings_Room">
+            <End Role="Rooms" EntitySet="AllRooms" />
+            <End Role="Bookings" EntitySet="AllBookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Building" Association="Self.FK_Room_Building">
+            <End Role="Buildings" EntitySet="AllBuildings" />
+            <End Role="Rooms" EntitySet="AllRooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Company" Association="Self.FK_User_Company">
+            <End Role="Companies" EntitySet="AllCompanies" />
+            <End Role="Users" EntitySet="AllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomFacilities_Facilities" Association="Self.FK_RoomFacilities_Facilities">
+            <End Role="Facilities" EntitySet="AllFacilities" />
+            <End Role="RoomFacilities" EntitySet="AllRoomFacilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_User" Association="Self.FK_Log_User">
+            <End Role="Users" EntitySet="AllUsers" />
+            <End Role="Log" EntitySet="AllLogEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Roles" EntitySet="AllRoles" />
+            <End Role="Users" EntitySet="AllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomFacilities_Room" Association="Self.FK_RoomFacilities_Room">
+            <End Role="Rooms" EntitySet="AllRooms" />
+            <End Role="RoomFacilities" EntitySet="AllRoomFacilities" />
+          </AssociationSet>
+          <AssociationSet Name="BillDetails" Association="Self.BillDetails">
+            <End Role="Bills" EntitySet="AllBills" />
+            <End Role="BookingDetails" EntitySet="AllBookingDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="innovation4austriaModelStoreContainer" CdmEntityContainer="innovation4austriaEntities">
+          <EntitySetMapping Name="AllBills">
+            <EntityTypeMapping TypeName="innovation4austriaModel.Bill">
+              <MappingFragment StoreEntitySet="Bills">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="CreatedOn" ColumnName="createDate" />
+                <ScalarProperty Name="From" ColumnName="fromDate" />
+                <ScalarProperty Name="To" ColumnName="toDate" />
+                <ScalarProperty Name="ID_Company" ColumnName="idCompany" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllBookingDetails">
+            <EntityTypeMapping TypeName="innovation4austriaModel.BookingDetail">
+              <MappingFragment StoreEntitySet="BookingDetails">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="ID_Booking" ColumnName="idBooking" />
+                <ScalarProperty Name="Date" ColumnName="date" />
+                <ScalarProperty Name="Price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllBookings">
+            <EntityTypeMapping TypeName="innovation4austriaModel.Booking">
+              <MappingFragment StoreEntitySet="Bookings">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="ID_Company" ColumnName="idCompany" />
+                <ScalarProperty Name="ID_Room" ColumnName="idRoom" />
+                <ScalarProperty Name="Active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllBuildings">
+            <EntityTypeMapping TypeName="innovation4austriaModel.Building">
+              <MappingFragment StoreEntitySet="Buildings">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="Street" ColumnName="street" />
+                <ScalarProperty Name="Number" ColumnName="number" />
+                <ScalarProperty Name="City" ColumnName="city" />
+                <ScalarProperty Name="Zip" ColumnName="zip" />
+                <ScalarProperty Name="Name" ColumnName="buildingName" />
+                <ScalarProperty Name="Order" ColumnName="orderNumber" />
+                <ScalarProperty Name="Active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllCompanies">
+            <EntityTypeMapping TypeName="innovation4austriaModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="companyName" />
+                <ScalarProperty Name="Street" ColumnName="street" />
+                <ScalarProperty Name="Number" ColumnName="number" />
+                <ScalarProperty Name="City" ColumnName="city" />
+                <ScalarProperty Name="Zip" ColumnName="zip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllFacilities">
+            <EntityTypeMapping TypeName="innovation4austriaModel.Facility">
+              <MappingFragment StoreEntitySet="Facilities">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="facilityName" />
+                <ScalarProperty Name="Order" ColumnName="orderNumber" />
+                <ScalarProperty Name="Active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllLogEntries">
+            <EntityTypeMapping TypeName="innovation4austriaModel.LogEntry">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Thread" ColumnName="Thread" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="ID_User" ColumnName="idUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllRoles">
+            <EntityTypeMapping TypeName="innovation4austriaModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="rolename" />
+                <ScalarProperty Name="Active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllRoomFacilities">
+            <EntityTypeMapping TypeName="innovation4austriaModel.RoomFacility">
+              <MappingFragment StoreEntitySet="RoomFacilities">
+                <ScalarProperty Name="ID_Roome" ColumnName="idRoom" />
+                <ScalarProperty Name="ID_Facility" ColumnName="idFacility" />
+                <ScalarProperty Name="Quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllRooms">
+            <EntityTypeMapping TypeName="innovation4austriaModel.Room">
+              <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="ID_Building" ColumnName="idBuilding" />
+                <ScalarProperty Name="Size" ColumnName="size" />
+                <ScalarProperty Name="PricePerDay" ColumnName="pricePerDay" />
+                <ScalarProperty Name="RoomName" ColumnName="roomName" />
+                <ScalarProperty Name="Order" ColumnName="orderNumber" />
+                <ScalarProperty Name="Active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllUsers">
+            <EntityTypeMapping TypeName="innovation4austriaModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="ID_Role" ColumnName="idRole" />
+                <ScalarProperty Name="ID_Company" ColumnName="idCompany" />
+                <ScalarProperty Name="Username" ColumnName="username" />
+                <ScalarProperty Name="Password" ColumnName="password" />
+                <ScalarProperty Name="FirstName" ColumnName="firstname" />
+                <ScalarProperty Name="LastName" ColumnName="lastname" />
+                <ScalarProperty Name="Active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="BillDetails" TypeName="innovation4austriaModel.BillDetails" StoreEntitySet="BillDetails">
+            <EndProperty Name="Bills">
+              <ScalarProperty Name="ID" ColumnName="idBill" />
+            </EndProperty>
+            <EndProperty Name="BookingDetails">
+              <ScalarProperty Name="ID" ColumnName="idBookingDetail" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

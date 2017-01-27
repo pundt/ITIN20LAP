@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ae620c099c194735b08fa1a2e6e217f5" Name="Diagram1">
+        <EntityTypeShape EntityType="innovation4austriaModel.Bill" Width="1.5" PointX="7.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.BookingDetail" Width="1.5" PointX="7.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.Booking" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.Building" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.Company" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.Facility" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.LogEntry" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.Role" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.RoomFacility" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.Room" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovation4austriaModel.User" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="innovation4austriaModel.FK_Bills_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.FK_BookingDetails_Booking" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.FK_Bookings_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.FK_Bookings_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.FK_Room_Building" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.FK_User_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.FK_RoomFacilities_Facilities" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.FK_Log_User" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.FK_RoomFacilities_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="innovation4austriaModel.BillDetails" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

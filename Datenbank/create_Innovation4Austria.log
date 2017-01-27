@@ -1,0 +1,59 @@
+ECHO ist ausgeschaltet (OFF).
+. 
+"starting database creation 15:06:25,31" 
+. 
+"try dropping database" 
+Der Datenbankkontext wurde in 'master' ge„ndert.
+Fr nicht gekennzeichnete Transaktionen wird ein Rollback ausgefhrt. Bereits abgeschlossen (gesch„tzt): 0%.
+Fr nicht gekennzeichnete Transaktionen wird ein Rollback ausgefhrt. Bereits abgeschlossen (gesch„tzt): 100%.
+ 
+ 
+"try creating database" 
+Der Datenbankkontext wurde in 'master' ge„ndert.
+ 
+ 
+"try creating tables" 
+Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
+ 
+ 
+"try creating primary keys" 
+Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
+Meldung '2714', Ebene '16', Status '5', Server 'LAPTOP\SQLEXPRESS', Zeile 2
+'In der Datenbank ist bereits ein Objekt mit dem Namen 'PK_Booking' vorhanden.'
+Meldung '1750', Ebene '16', Status '1', Server 'LAPTOP\SQLEXPRESS', Zeile 2
+'Die Einschr„nkung konnte nicht erstellt werden. Siehe vorherige Fehler.'
+ 
+ 
+"try creating foreign keys" 
+Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
+ 
+ 
+"try inserting values" 
+Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
+
+(1 Zeilen betroffen)
+Meldung '2627', Ebene '14', Status '1', Server 'LAPTOP\SQLEXPRESS', Zeile 99
+'Verletzung der PRIMARY KEY-Einschr„nkung 'PK_RoomFacility'. Ein doppelter Schlssel kann in das dbo.RoomFacilities-Objekt nicht eingefgt werden. Der doppelte Schlsselwert ist (5, 5).'
+Die Anweisung wurde beendet.
+ 
+ 
+"try inserting users" 
+Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
+ 
+ 
+"create login" 
+Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
+Meldung '15025', Ebene '16', Status '1', Server 'LAPTOP\SQLEXPRESS', Zeile 6
+'Der Serverprinzipal 'i4a_User' ist bereits vorhanden.'
+Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
+Meldung '15410', Ebene '11', Status '1', Server 'LAPTOP\SQLEXPRESS', Prozedur 'sp_addrolemember', Zeile 35
+'Der Benutzer oder die Rolle 'innovation4austria' ist in dieser Datenbank nicht vorhanden.'
+ 
+ 
+"try inserting DEMO Values" 
+Der Datenbankkontext wurde in 'innovation4austria' ge„ndert.
+ 
+ 
+. 
+"stopping database creation 15:06:30,85" 
+. 
