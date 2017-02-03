@@ -1,0 +1,16 @@
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\innovation4austria.test.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\innovation4austria.test.pdb
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\innovation4austria.data.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\innovation4austria.logic.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\EntityFramework.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\log4net.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\innovation4austria.data.pdb
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\innovation4austria.logic.pdb
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\EntityFramework.xml
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\log4net.xml
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\de\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\bin\Release\de\EntityFramework.resources.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\obj\Release\innovation4austria.test.csprojResolveAssemblyReference.cache
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\obj\Release\innovation4austria.test.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.test\obj\Release\innovation4austria.test.pdb

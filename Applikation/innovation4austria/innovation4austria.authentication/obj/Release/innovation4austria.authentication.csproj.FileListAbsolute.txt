@@ -1,0 +1,15 @@
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\innovation4austria.authentication.dll.config
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\innovation4austria.authentication.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\innovation4austria.authentication.pdb
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\innovation4austria.data.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\innovation4austria.logic.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\log4net.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\EntityFramework.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\innovation4austria.data.pdb
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\innovation4austria.logic.pdb
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\log4net.xml
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\EntityFramework.xml
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\bin\Release\de\EntityFramework.resources.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\obj\Release\innovation4austria.authentication.csprojResolveAssemblyReference.cache
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\obj\Release\innovation4austria.authentication.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.authentication\obj\Release\innovation4austria.authentication.pdb

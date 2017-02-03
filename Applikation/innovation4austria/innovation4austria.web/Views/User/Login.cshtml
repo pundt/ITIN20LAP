@@ -1,0 +1,40 @@
+﻿@model innovation4austria.web.Models.LoginModel
+@{
+    ViewBag.Title = "innovation4austria - Anmelden";
+}
+
+<div class="row text-center">
+    <div class="col-md-12">
+        <h1>Anmelden</h1>
+    </div>
+</div>
+<div class="row text-center pad-top">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="row ">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.Username, new { placeholder = "Benutzername/email", @class = "form-control", maxlength = 100, type = "email" })
+                        @Html.ValidationMessageFor(x => x.Username)
+                    </div>
+                </div>
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="form-group">
+                        @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "Passwort", maxlength = 50 })
+                        @Html.ValidationMessageFor(x => x.Password)
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary btn-lg">Anmelden</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

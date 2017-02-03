@@ -83,6 +83,35 @@ namespace innovation4austria.logic
             return result;
         }
 
+        public static User GetUser(string username)
+        {
+            log.Info("GetUser(username)");
+
+            User user = null;
+
+            using (var context = new innovation4austriaEntities())
+            {
+                try
+                {
+                    user = context.AllUsers.Where(x => x.Username == username).FirstOrDefault();
+
+                    if (user== null)
+                    {
+                        log.Info("Unknown username!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Exception in GetUser", ex);
+                    if (ex.InnerException != null)
+                        log.Error("Exception in GetUser (inner)", ex.InnerException);
+                    throw;
+                }                
+            }
+
+            return user;
+        }
+
         public static bool DeactivateUser(string username)
         {
             log.Info("DeactivateUser(username)");

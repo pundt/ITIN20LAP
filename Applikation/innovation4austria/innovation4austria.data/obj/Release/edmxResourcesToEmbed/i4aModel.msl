@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="innovation4austriaModelStoreContainer" CdmEntityContainer="innovation4austriaEntities">
+    <EntitySetMapping Name="AllBills">
+      <EntityTypeMapping TypeName="innovation4austriaModel.Bill">
+        <MappingFragment StoreEntitySet="Bills">
+          <ScalarProperty Name="ID" ColumnName="id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="createDate" />
+          <ScalarProperty Name="From" ColumnName="fromDate" />
+          <ScalarProperty Name="To" ColumnName="toDate" />
+          <ScalarProperty Name="ID_Company" ColumnName="idCompany" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllBookingDetails">
+      <EntityTypeMapping TypeName="innovation4austriaModel.BookingDetail">
+        <MappingFragment StoreEntitySet="BookingDetails">
+          <ScalarProperty Name="ID" ColumnName="id" />
+          <ScalarProperty Name="ID_Booking" ColumnName="idBooking" />
+          <ScalarProperty Name="Date" ColumnName="date" />
+          <ScalarProperty Name="Price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllBookings">
+      <EntityTypeMapping TypeName="innovation4austriaModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="ID" ColumnName="id" />
+          <ScalarProperty Name="ID_Company" ColumnName="idCompany" />
+          <ScalarProperty Name="ID_Room" ColumnName="idRoom" />
+          <ScalarProperty Name="Active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllBuildings">
+      <EntityTypeMapping TypeName="innovation4austriaModel.Building">
+        <MappingFragment StoreEntitySet="Buildings">
+          <ScalarProperty Name="ID" ColumnName="id" />
+          <ScalarProperty Name="Street" ColumnName="street" />
+          <ScalarProperty Name="Number" ColumnName="number" />
+          <ScalarProperty Name="City" ColumnName="city" />
+          <ScalarProperty Name="Zip" ColumnName="zip" />
+          <ScalarProperty Name="Name" ColumnName="buildingName" />
+          <ScalarProperty Name="Order" ColumnName="orderNumber" />
+          <ScalarProperty Name="Active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllCompanies">
+      <EntityTypeMapping TypeName="innovation4austriaModel.Company">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="ID" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="companyName" />
+          <ScalarProperty Name="Street" ColumnName="street" />
+          <ScalarProperty Name="Number" ColumnName="number" />
+          <ScalarProperty Name="City" ColumnName="city" />
+          <ScalarProperty Name="Zip" ColumnName="zip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllFacilities">
+      <EntityTypeMapping TypeName="innovation4austriaModel.Facility">
+        <MappingFragment StoreEntitySet="Facilities">
+          <ScalarProperty Name="ID" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="facilityName" />
+          <ScalarProperty Name="Order" ColumnName="orderNumber" />
+          <ScalarProperty Name="Active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllLogEntries">
+      <EntityTypeMapping TypeName="innovation4austriaModel.LogEntry">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="ID" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Thread" ColumnName="Thread" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Logger" ColumnName="Logger" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="ID_User" ColumnName="idUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllRoles">
+      <EntityTypeMapping TypeName="innovation4austriaModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ID" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="rolename" />
+          <ScalarProperty Name="Active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllRoomFacilities">
+      <EntityTypeMapping TypeName="innovation4austriaModel.RoomFacility">
+        <MappingFragment StoreEntitySet="RoomFacilities">
+          <ScalarProperty Name="ID_Roome" ColumnName="idRoom" />
+          <ScalarProperty Name="ID_Facility" ColumnName="idFacility" />
+          <ScalarProperty Name="Quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllRooms">
+      <EntityTypeMapping TypeName="innovation4austriaModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="ID" ColumnName="id" />
+          <ScalarProperty Name="ID_Building" ColumnName="idBuilding" />
+          <ScalarProperty Name="Size" ColumnName="size" />
+          <ScalarProperty Name="PricePerDay" ColumnName="pricePerDay" />
+          <ScalarProperty Name="RoomName" ColumnName="roomName" />
+          <ScalarProperty Name="Order" ColumnName="orderNumber" />
+          <ScalarProperty Name="Active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllUsers">
+      <EntityTypeMapping TypeName="innovation4austriaModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID" ColumnName="id" />
+          <ScalarProperty Name="ID_Role" ColumnName="idRole" />
+          <ScalarProperty Name="ID_Company" ColumnName="idCompany" />
+          <ScalarProperty Name="Username" ColumnName="username" />
+          <ScalarProperty Name="Password" ColumnName="password" />
+          <ScalarProperty Name="FirstName" ColumnName="firstname" />
+          <ScalarProperty Name="LastName" ColumnName="lastname" />
+          <ScalarProperty Name="Active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BillDetails" TypeName="innovation4austriaModel.BillDetails" StoreEntitySet="BillDetails">
+      <EndProperty Name="Bills">
+        <ScalarProperty Name="ID" ColumnName="idBill" />
+      </EndProperty>
+      <EndProperty Name="BookingDetails">
+        <ScalarProperty Name="ID" ColumnName="idBookingDetail" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

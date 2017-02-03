@@ -1,17 +1,94 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Meine ASP.NET-Anwendung</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="ITIN20 LAP - innovation4austria">
+    <meta name="author" content="Pilgerstorfer Franz">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>@ViewBag.Title</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
-<body>   
-    @RenderBody()
+<body data-spy="scroll" data-target=".navbar-fixed-top">
+    <!--NAVBAR SECTION-->
+    <div class="navbar navbar-inverse navbar-fixed-top scrollclass">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">innovation4austria</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                @using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutform" }))
+                {
+                    @Html.AntiForgeryToken()
+                    
+                }
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class=""><a href="@Url.Action("Dashboard", "User")">DASHBOARD</a></li>
+                        <li class=""><a href="#portfolio">RÄUME</a></li>
+                        <li class=""><a href="@Url.Action("ProfileData", "User")">PROFIL</a></li>
+                        <!-- class active !!! -->
+                        <li class="">
+                            <a href="#" onclick="document.getElementById('logoutform').submit();">ABMELDEN</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="active"><a href="@Url.Action("Login", "User")">Anmelden</a></li>
+                    }
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <section id="contact">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </section>
+
+
+
+    <div id="footer">
+        2017 www.innovation4austria.at | All Right Reserved  | Design by <a href="http://www.innovation4austria.at/" target="_blank">www.innovation4austria.at</a>
+
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/customjs")
+
     @RenderSection("scripts", required: false)
+
+    @{
+        if (TempData[Constants.WARNING_MESSAGE] != null)
+        {
+            <script>
+                toastr['warning']('@TempData[Constants.WARNING_MESSAGE]');
+            </script>
+        }
+        if (TempData[Constants.ERROR_MESSAGE] != null)
+        {
+            <script>
+                toastr['error']('@TempData[Constants.ERROR_MESSAGE]');
+            </script>
+        }
+        if (TempData[Constants.SUCCESS_MESSAGE] != null)
+        {
+            <script>
+                toastr['success']('@TempData[Constants.SUCCESS_MESSAGE]');
+            </script>
+        }
+    }
 </body>
 </html>

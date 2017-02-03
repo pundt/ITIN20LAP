@@ -14,13 +14,20 @@ namespace innovation4austria.web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            // Verwenden Sie die Entwicklungsversion von Modernizr zum Entwickeln und Erweitern Ihrer Kenntnisse. Wenn Sie dann
-            // für die Produktion bereit sind, verwenden Sie das Buildtool unter "http://modernizr.com", um nur die benötigten Tests auszuwählen.
+            bundles.Add(new ScriptBundle("~/bundles/customjs").Include(
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/jquery.easing.min.js",
+                        "~/Scripts/custom.js",
+                        "~/Scripts/toastr.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/site.css"));
+                "~/Content/css/bootstrap.css",
+                "~/Content/css/font-awesome.min.css",
+                "~/Content/css/style.css",
+                "~/Content/css/toastr.min.css"));
         }
     }
 }
