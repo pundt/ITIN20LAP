@@ -188,3 +188,10 @@ section {
     text-align: right;
     border-top: 1px solid #7eb9f8;
 }
+
+/*========================================
+    CUSTOM SECTION
+    ======================================*/
+.row {
+    padding-top: 15px;
+}

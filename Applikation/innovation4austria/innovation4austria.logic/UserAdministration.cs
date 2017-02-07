@@ -83,6 +83,27 @@ namespace innovation4austria.logic
             return result;
         }
 
+        public static bool SaveProfileData(string username, string firstname, string lastname)
+        {
+            log.Info("GetUser(username)");
+            bool success = false;
+
+            using (var context = new innovation4austriaEntities())
+            {
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+
+            return success;
+        }
+
         public static User GetUser(string username)
         {
             log.Info("GetUser(username)");

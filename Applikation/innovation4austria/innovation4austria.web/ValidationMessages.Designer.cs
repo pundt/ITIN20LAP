@@ -97,6 +97,15 @@ namespace innovation4austria.web {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ungültige Daten beim Ändern der Profil-Daten! ähnelt.
+        /// </summary>
+        internal static string ProfileDataInvalid {
+            get {
+                return ResourceManager.GetString("ProfileDataInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Nur Buchstaben  und Zahlen, mind. 5 ähnelt.
         /// </summary>
         internal static string RegexPassword {
@@ -111,6 +120,24 @@ namespace innovation4austria.web {
         internal static string Required {
             get {
                 return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Speichern Ihrer Änderungen! ähnelt.
+        /// </summary>
+        internal static string SaveError {
+            get {
+                return ResourceManager.GetString("SaveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ihre Änderungen wurden erfolgreich gespeichert! ähnelt.
+        /// </summary>
+        internal static string SaveSuccess {
+            get {
+                return ResourceManager.GetString("SaveSuccess", resourceCulture);
             }
         }
     }

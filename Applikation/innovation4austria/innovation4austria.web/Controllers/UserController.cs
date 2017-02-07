@@ -69,10 +69,51 @@ namespace innovation4austria.web.Controllers
             log.Info("GET - User - ProfileData()");
 
             User currentUser = UserAdministration.GetUser(User.Identity.Name);
-            ProfileDataModel model = AutoMapperConfig.CommonMapper.Map<ProfileDataModel>(currentUser);
-
+            ProfileDataModel dataModel = AutoMapperConfig.CommonMapper.Map<ProfileDataModel>(currentUser);
+            ProfileModel model = new ProfileModel()
+            {
+                ProfileData = dataModel,
+                ProfilePassword = new ProfilePasswordModel()
+            };
 
             return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveProfileData(ProfileDataModel model)
+        {
+            log.Info("POST - User - SaveProfileData(ProfileDataModel)");
+
+            if (ModelState.IsValid)
+            {
+                // call logic and modify profileData
+                if (UserAdministration.SaveProfileData(User.Identity.Name, model.Firstname, model.Lastname))
+                {
+
+                    TempData[Constants.SUCCESS_MESSAGE] = ValidationMessages.SaveSuccess;
+                }
+                else
+                {
+                    TempData[Constants.ERROR_MESSAGE] = ValidationMessages.SaveError;
+                }
+            }
+            else
+            {
+                TempData[Constants.WARNING_MESSAGE] = ValidationMessages.ProfileDataInvalid;
+            }
+
+            return RedirectToAction("ProfileData");
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveProfilePassword(ProfilePasswordModel model)
+        {
+
+            return RedirectToAction("ProfileData");
         }
 
         [HttpPost]

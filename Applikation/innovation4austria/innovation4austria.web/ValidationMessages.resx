@@ -129,10 +129,19 @@
   <data name="MaxLength" xml:space="preserve">
     <value>Maximale Zeichenlänge erreicht!</value>
   </data>
+  <data name="ProfileDataInvalid" xml:space="preserve">
+    <value>Ungültige Daten beim Ändern der Profil-Daten!</value>
+  </data>
   <data name="RegexPassword" xml:space="preserve">
     <value>Nur Buchstaben  und Zahlen, mind. 5</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Pflichtfeld</value>
+  </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>Fehler beim Speichern Ihrer Änderungen!</value>
+  </data>
+  <data name="SaveSuccess" xml:space="preserve">
+    <value>Ihre Änderungen wurden erfolgreich gespeichert!</value>
   </data>
 </root>
