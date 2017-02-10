@@ -1,4 +1,5 @@
-﻿using System;
+﻿using innovation4austria.web.App_GlobalResources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace innovation4austria.web.Models
         [StringLength(100, 
             ErrorMessageResourceName = Validation.MAXLENGTH,
             ErrorMessageResourceType = typeof(ValidationMessages))]
+        [Display(ResourceType = typeof(DisplayNames), Name = nameof(DisplayNames.Username))]
         public string Username { get; set; }
 
         [Required(AllowEmptyStrings = false,
@@ -27,6 +29,8 @@ namespace innovation4austria.web.Models
         [StringLength(50,
             ErrorMessageResourceName = Validation.MAXLENGTH,
             ErrorMessageResourceType = typeof(ValidationMessages))]
+        [Display(ResourceType = typeof(DisplayNames), Name = nameof(DisplayNames.Password))]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }

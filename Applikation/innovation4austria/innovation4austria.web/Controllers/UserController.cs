@@ -1,6 +1,7 @@
 ﻿using innovation4austria.data;
 using innovation4austria.logic;
 using innovation4austria.web;
+using innovation4austria.web.App_GlobalResources;
 using innovation4austria.web.Models;
 using log4net;
 using System;
@@ -40,7 +41,6 @@ namespace innovation4austria.web.Controllers
                     case LogonResult.LogonDataValid:
                         FormsAuthentication.SetAuthCookie(model.Username, true);
                         return RedirectToAction("Dashboard", "User");
-                        break;
                     case LogonResult.LogonDataInvalid:
                     case LogonResult.UserInactive:
                     case LogonResult.UnkownUser:
@@ -76,7 +76,7 @@ namespace innovation4austria.web.Controllers
                 ProfilePassword = new ProfilePasswordModel()
             };
 
-            return View(model);
+            return View("Profile", model);
         }
 
         [HttpPost]
@@ -89,12 +89,20 @@ namespace innovation4austria.web.Controllers
             if (ModelState.IsValid)
             {
                 // call logic and modify profileData
-                if (UserAdministration.SaveProfileData(User.Identity.Name, model.Firstname, model.Lastname))
+                try
                 {
+                    ProfileChangeResult result = UserAdministration.SaveProfileData(User.Identity.Name, model.Firstname, model.Lastname);
+                    if (result == ProfileChangeResult.Success)
+                    {
 
-                    TempData[Constants.SUCCESS_MESSAGE] = ValidationMessages.SaveSuccess;
+                        TempData[Constants.SUCCESS_MESSAGE] = ValidationMessages.SaveSuccess;
+                    }
+                    else
+                    {
+                        TempData[Constants.ERROR_MESSAGE] = ValidationMessages.SaveError;
+                    }
                 }
-                else
+                catch (Exception)
                 {
                     TempData[Constants.ERROR_MESSAGE] = ValidationMessages.SaveError;
                 }
@@ -112,6 +120,25 @@ namespace innovation4austria.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SaveProfilePassword(ProfilePasswordModel model)
         {
+            log.Info("POST - User - SaveProfilePassword(ProfilePasswordModel)");
+
+            if (ModelState.IsValid)
+            {
+                // call logic and modify profileData
+                if (UserAdministration.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword) == PasswordChangeResult.Success)
+                {
+
+                    TempData[Constants.SUCCESS_MESSAGE] = ValidationMessages.SaveSuccess;
+                }
+                else
+                {
+                    TempData[Constants.ERROR_MESSAGE] = ValidationMessages.SaveError;
+                }
+            }
+            else
+            {
+                TempData[Constants.WARNING_MESSAGE] = ValidationMessages.ProfilePasswordInvalid;
+            }
 
             return RedirectToAction("ProfileData");
         }

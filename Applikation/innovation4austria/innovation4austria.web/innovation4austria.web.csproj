@@ -140,7 +140,12 @@
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidationMessages.Designer.cs">
+    <Compile Include="App_GlobalResources\DisplayNames.Designer.cs">
+      <DependentUpon>DisplayNames.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\ValidationMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ValidationMessages.resx</DependentUpon>
@@ -198,7 +203,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Dashboard.cshtml" />
-    <Content Include="Views\User\ProfileData.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\User\_ProfileData.cshtml" />
+    <Content Include="Views\User\_ProfilePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -222,7 +229,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ValidationMessages.resx">
+    <EmbeddedResource Include="App_GlobalResources\DisplayNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DisplayNames.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\ValidationMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>

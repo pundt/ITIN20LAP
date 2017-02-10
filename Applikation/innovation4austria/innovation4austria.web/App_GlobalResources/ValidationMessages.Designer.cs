@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace innovation4austria.web {
+namespace innovation4austria.web.App_GlobalResources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace innovation4austria.web {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("innovation4austria.web.ValidationMessages", typeof(ValidationMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("innovation4austria.web.App_GlobalResources.ValidationMessages", typeof(ValidationMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -102,6 +102,15 @@ namespace innovation4austria.web {
         internal static string ProfileDataInvalid {
             get {
                 return ResourceManager.GetString("ProfileDataInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ungültige Daten beim Ändern Ihres Passworts! ähnelt.
+        /// </summary>
+        internal static string ProfilePasswordInvalid {
+            get {
+                return ResourceManager.GetString("ProfilePasswordInvalid", resourceCulture);
             }
         }
         
