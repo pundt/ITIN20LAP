@@ -7,8 +7,17 @@ namespace innovation4austria.web
 {
     public class Constants
     {
-        public const string WARNING_MESSAGE = "warning";
-        public const string ERROR_MESSAGE = "error";
-        public const string SUCCESS_MESSAGE = "success";
+        public class Messages
+        {
+            public const string WARNING = "warning";
+            public const string ERROR = "error";
+            public const string SUCCESS = "success";
+        }
+
+        public class Roles
+        {
+            public const string INNOVATION4AUSTRIA = "innovation4austria";
+            public const string STARTUP = "startup";
+        }
     }
 }

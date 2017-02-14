@@ -44,7 +44,7 @@ namespace innovation4austria.web.Controllers
                     case LogonResult.LogonDataInvalid:
                     case LogonResult.UserInactive:
                     case LogonResult.UnkownUser:
-                        TempData[Constants.WARNING_MESSAGE] = ValidationMessages.LogonDataInvalid;
+                        TempData[Constants.Messages.WARNING] = ValidationMessages.LogonDataInvalid;
                         break;
                     default:
                         break;
@@ -95,21 +95,21 @@ namespace innovation4austria.web.Controllers
                     if (result == ProfileChangeResult.Success)
                     {
 
-                        TempData[Constants.SUCCESS_MESSAGE] = ValidationMessages.SaveSuccess;
+                        TempData[Constants.Messages.SUCCESS] = ValidationMessages.SaveSuccess;
                     }
                     else
                     {
-                        TempData[Constants.ERROR_MESSAGE] = ValidationMessages.SaveError;
+                        TempData[Constants.Messages.ERROR] = ValidationMessages.SaveError;
                     }
                 }
                 catch (Exception)
                 {
-                    TempData[Constants.ERROR_MESSAGE] = ValidationMessages.SaveError;
+                    TempData[Constants.Messages.ERROR] = ValidationMessages.SaveError;
                 }
             }
             else
             {
-                TempData[Constants.WARNING_MESSAGE] = ValidationMessages.ProfileDataInvalid;
+                TempData[Constants.Messages.WARNING] = ValidationMessages.ProfileDataInvalid;
             }
 
             return RedirectToAction("ProfileData");
@@ -128,16 +128,16 @@ namespace innovation4austria.web.Controllers
                 if (UserAdministration.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword) == PasswordChangeResult.Success)
                 {
 
-                    TempData[Constants.SUCCESS_MESSAGE] = ValidationMessages.SaveSuccess;
+                    TempData[Constants.Messages.SUCCESS] = ValidationMessages.SaveSuccess;
                 }
                 else
                 {
-                    TempData[Constants.ERROR_MESSAGE] = ValidationMessages.SaveError;
+                    TempData[Constants.Messages.ERROR] = ValidationMessages.SaveError;
                 }
             }
             else
             {
-                TempData[Constants.WARNING_MESSAGE] = ValidationMessages.ProfilePasswordInvalid;
+                TempData[Constants.Messages.WARNING] = ValidationMessages.ProfilePasswordInvalid;
             }
 
             return RedirectToAction("ProfileData");

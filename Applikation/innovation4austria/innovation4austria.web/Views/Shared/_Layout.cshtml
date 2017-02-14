@@ -71,22 +71,22 @@
     @RenderSection("scripts", required: false)
 
     @{
-        if (TempData[Constants.WARNING_MESSAGE] != null)
+        if (TempData[Constants.Messages.WARNING] != null)
         {
             <script>
-                toastr['warning']('@TempData[Constants.WARNING_MESSAGE]');
+                toastr['warning']('@TempData[Constants.Messages.WARNING]');
             </script>
         }
-        if (TempData[Constants.ERROR_MESSAGE] != null)
+        if (TempData[Constants.Messages.ERROR] != null)
         {
             <script>
-                toastr['error']('@TempData[Constants.ERROR_MESSAGE]');
+                toastr['error']('@TempData[Constants.Messages.ERROR]');
             </script>
         }
-        if (TempData[Constants.SUCCESS_MESSAGE] != null)
+        if (TempData[Constants.Messages.SUCCESS] != null)
         {
             <script>
-                toastr['success']('@TempData[Constants.SUCCESS_MESSAGE]');
+                toastr['success']('@TempData[Constants.Messages.SUCCESS]');
             </script>
         }
     }

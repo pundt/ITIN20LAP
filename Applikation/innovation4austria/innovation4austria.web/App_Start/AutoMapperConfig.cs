@@ -12,10 +12,17 @@ namespace innovation4austria.web
     public static class AutoMapperConfig
     {
         public static IMapper CommonMapper;
+        public static IMapper InnovationMapper;
+        public static IMapper StartupMapper;
         public static void RegisterMappings()
         {
             var commonConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<CommonProfile>());
+            var innovationMapper = new MapperConfiguration(cfg => cfg.AddProfile<CommonProfile>());
+            var startupMapper = new MapperConfiguration(cfg => cfg.AddProfile<CommonProfile>());
+
             CommonMapper = commonConfiguration.CreateMapper();
+            InnovationMapper = innovationMapper.CreateMapper();
+            StartupMapper = startupMapper.CreateMapper();
         }
     }
 
@@ -24,6 +31,23 @@ namespace innovation4austria.web
         protected override void Configure()
         {
             base.CreateMap<User, ProfileDataModel>();
+            base.CreateMap<Company, CompanyModel>();
+        }
+    }
+
+    public class InnovationProfile : Profile
+    {
+        protected override void Configure()
+        {
+
+        }
+    }
+
+    public class StartupProfile : Profile
+    {
+        protected override void Configure()
+        {
+
         }
     }
 

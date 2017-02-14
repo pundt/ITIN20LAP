@@ -9,6 +9,8 @@ namespace innovation4austria.web.Models
 {
     public class ProfileDataModel
     {
+        public int ID { get; set; }
+
         [Display(ResourceType = typeof(DisplayNames), Name = nameof(DisplayNames.Username))]
         [StringLength(20,
             ErrorMessageResourceName = Validation.MAXLENGTH,

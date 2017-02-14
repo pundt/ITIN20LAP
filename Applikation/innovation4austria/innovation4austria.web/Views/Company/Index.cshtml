@@ -1,0 +1,54 @@
+﻿@model IEnumerable<innovation4austria.web.Models.CompanyModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Firmen verwalten</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-1 col-md-3">
+        Firmenname
+    </div>
+    <div class="col-md-2">
+        Adresse
+    </div>
+    <div class="col-md-1">
+        Nr.
+    </div>
+    <div class="col-md-2">
+        Stadt
+    </div>
+    <div class="col-md-1">
+        PLZ
+    </div>
+    <div class="col-md-2">
+        
+    </div>
+</div>
+@foreach (var company in Model)
+{
+    <div class="row">
+        <div class="col-md-offset-1 col-md-3">
+            @company.Name
+        </div>
+        <div class="col-md-2">
+            @company.Street
+        </div>
+        <div class="col-md-1">
+            @company.Number
+        </div>
+        <div class="col-md-2">
+            @company.City
+        </div>
+        <div class="col-md-1">
+            @company.Zip
+        </div>
+        <div class="col-md-2">
+            <a href="@Url.Action("Detail", "Company", new { id = company.ID })">Bearbeiten</a>
+        </div>
+    </div>
+}
+

@@ -1,3 +1,7 @@
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.csprojResolveAssemblyReference.cache
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.App_GlobalResources.DisplayNames.resources
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.App_GlobalResources.ValidationMessages.resources
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.csproj.GenerateResource.Cache
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\roslyn\csc.exe
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -14,6 +18,7 @@ D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\in
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\ASP.NET MVC.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\ASP.NET MVC.pdb
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\Antlr3.Runtime.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\AutoMapper.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\innovation4austria.authentication.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\innovation4austria.data.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\innovation4austria.logic.dll
@@ -33,6 +38,7 @@ D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\in
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\innovation4austria.authentication.pdb
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\innovation4austria.data.pdb
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\innovation4austria.logic.pdb
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\AutoMapper.xml
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\log4net.xml
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\System.Web.Helpers.xml
@@ -53,10 +59,5 @@ D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\in
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\de\System.Web.WebPages.Deployment.resources.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\de\System.Web.WebPages.Razor.resources.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\de\EntityFramework.resources.dll
-D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.csprojResolveAssemblyReference.cache
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\ASP.NET MVC.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\ASP.NET MVC.pdb
-D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.ValidationMessages.resources
-D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.csproj.GenerateResource.Cache
-D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\AutoMapper.dll
-D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\AutoMapper.xml

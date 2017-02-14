@@ -22,7 +22,7 @@ namespace innovation4austria.web.App_GlobalResources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ValidationMessages {
+    public class ValidationMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace innovation4austria.web.App_GlobalResources {
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("innovation4austria.web.App_GlobalResources.ValidationMessages", typeof(ValidationMessages).Assembly);
@@ -51,7 +51,7 @@ namespace innovation4austria.web.App_GlobalResources {
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ungültiges Datum ähnelt.
         /// </summary>
-        internal static string DataTypeDate {
+        public static string DataTypeDate {
             get {
                 return ResourceManager.GetString("DataTypeDate", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ungültige Mail ähnelt.
         /// </summary>
-        internal static string DataTypeMail {
+        public static string DataTypeMail {
             get {
                 return ResourceManager.GetString("DataTypeMail", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Anmelden. Benutzername oder Passwort falsch! ähnelt.
         /// </summary>
-        internal static string LogonDataInvalid {
+        public static string LogonDataInvalid {
             get {
                 return ResourceManager.GetString("LogonDataInvalid", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Maximale Zeichenlänge erreicht! ähnelt.
         /// </summary>
-        internal static string MaxLength {
+        public static string MaxLength {
             get {
                 return ResourceManager.GetString("MaxLength", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ungültige Daten beim Ändern der Profil-Daten! ähnelt.
         /// </summary>
-        internal static string ProfileDataInvalid {
+        public static string ProfileDataInvalid {
             get {
                 return ResourceManager.GetString("ProfileDataInvalid", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ungültige Daten beim Ändern Ihres Passworts! ähnelt.
         /// </summary>
-        internal static string ProfilePasswordInvalid {
+        public static string ProfilePasswordInvalid {
             get {
                 return ResourceManager.GetString("ProfilePasswordInvalid", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Nur Buchstaben  und Zahlen, mind. 5 ähnelt.
         /// </summary>
-        internal static string RegexPassword {
+        public static string RegexPassword {
             get {
                 return ResourceManager.GetString("RegexPassword", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Pflichtfeld ähnelt.
         /// </summary>
-        internal static string Required {
+        public static string Required {
             get {
                 return ResourceManager.GetString("Required", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Speichern Ihrer Änderungen! ähnelt.
         /// </summary>
-        internal static string SaveError {
+        public static string SaveError {
             get {
                 return ResourceManager.GetString("SaveError", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ihre Änderungen wurden erfolgreich gespeichert! ähnelt.
         /// </summary>
-        internal static string SaveSuccess {
+        public static string SaveSuccess {
             get {
                 return ResourceManager.GetString("SaveSuccess", resourceCulture);
             }

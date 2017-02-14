@@ -22,7 +22,7 @@ namespace innovation4austria.web.App_GlobalResources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class DisplayNames {
+    public class DisplayNames {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace innovation4austria.web.App_GlobalResources {
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("innovation4austria.web.App_GlobalResources.DisplayNames", typeof(DisplayNames).Assembly);
@@ -51,7 +51,7 @@ namespace innovation4austria.web.App_GlobalResources {
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Wiederholung ähnelt.
         /// </summary>
-        internal static string ConfirmPassword {
+        public static string ConfirmPassword {
             get {
                 return ResourceManager.GetString("ConfirmPassword", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Vorname ähnelt.
         /// </summary>
-        internal static string Firstname {
+        public static string Firstname {
             get {
                 return ResourceManager.GetString("Firstname", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Nachname ähnelt.
         /// </summary>
-        internal static string Lastname {
+        public static string Lastname {
             get {
                 return ResourceManager.GetString("Lastname", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die neues Passwort ähnelt.
         /// </summary>
-        internal static string NewPassword {
+        public static string NewPassword {
             get {
                 return ResourceManager.GetString("NewPassword", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die altes Passwort ähnelt.
         /// </summary>
-        internal static string OldPassword {
+        public static string OldPassword {
             get {
                 return ResourceManager.GetString("OldPassword", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Passwort ähnelt.
         /// </summary>
-        internal static string Password {
+        public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace innovation4austria.web.App_GlobalResources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Benutzername ähnelt.
         /// </summary>
-        internal static string Username {
+        public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
             }

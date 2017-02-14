@@ -150,6 +150,73 @@ namespace innovation4austria.logic
             return result;
         }
 
+        /// <summary>
+        /// if given id belongs to a company user, it will be deactivated
+        /// otherelse an exception will be thrown
+        /// </summary>
+        /// <param name="idUser">id for a given company user</param>
+        /// <exception cref="Exception">in case data access failed</exception>
+        /// <returns>true if deactivation was successfull, otherelse false</returns>
+        public static bool DeleteCompanyUser(int idUser)
+        {
+            bool deleteSuccessful = false;
+
+            try
+            {
+                User user = null;
+                using (var context = new innovation4austriaEntities())
+                {
+                    user = context.AllUsers.FirstOrDefault(x => x.ID == idUser && x.ID_Role == 2);
+                }
+                if (user!=null)
+                {
+                    deleteSuccessful = DeactivateUser(user.Username);
+                } else
+                {
+                    log.Info($"idUser {idUser} is no startup User");
+                }
+            }
+            catch (Exception ex) 
+            {
+                log.Error("Exception in DeleteCompanyUser", ex);
+                if (ex.InnerException != null)
+                    log.Error("Exception in DeleteCompanyUser (inner)", ex.InnerException);
+                throw;
+            }
+
+            return deleteSuccessful;
+        }
+
+        public static bool CreateCompanyUser(string username, string password, string firstname, string lastname, int idCompany)
+        {
+            bool created = false;
+
+            try
+            {
+                using (var context = new innovation4austriaEntities())
+                {
+                    User user = new User()
+                    {
+                        Username = username,
+                        Password = Helper.GetSHA2(password),
+                        FirstName = firstname,
+                        LastName = lastname,
+                        ID_Company = idCompany,
+                        ID_Role = 2 // startup, company
+                    };
+                    context.AllUsers.Add(user);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+            return created;
+        }
+
         public static User GetUser(string username)
         {
             log.Info("GetUser(username)");
@@ -323,6 +390,36 @@ namespace innovation4austria.logic
                 }
             }
             return result;
+        }
+
+        public static List<User> GetCompanyUser(int companyId)
+        {
+            log.Info("GetCompanyUser(companyId)");
+
+            List<User> companyUsers = null;
+
+            using (var context = new innovation4austriaEntities())
+            {
+                try
+                {
+                    var company = context.AllCompanies.FirstOrDefault(x => x.ID == companyId);
+
+                    if (company != null)
+                        companyUsers = company.AllUsers.ToList();
+                    else
+                        throw new ArgumentException("Invalid companyId", nameof(companyId));
+
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Exception in GetCompanyUser", ex);
+                    if (ex.InnerException != null)
+                        log.Error("Exception in GetCompanyUser (inner)", ex.InnerException);
+                    throw;
+                }
+            }
+
+            return companyUsers;
         }
     }
 
