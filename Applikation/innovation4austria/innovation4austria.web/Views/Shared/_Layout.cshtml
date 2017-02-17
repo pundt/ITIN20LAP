@@ -29,12 +29,16 @@
                 @using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutform" }))
                 {
                     @Html.AntiForgeryToken()
-                    
+
                 }
                 <ul class="nav navbar-nav navbar-right">
                     @if (Request.IsAuthenticated)
                     {
                         <li class=""><a href="@Url.Action("Dashboard", "User")">DASHBOARD</a></li>
+                        if (User.IsInRole(Constants.Roles.INNOVATION4AUSTRIA))
+                        {
+                            <li class=""><a href="@Url.Action("Index", "Company")">FIRMEN</a></li>
+                        }
                         <li class=""><a href="#portfolio">RÄUME</a></li>
                         <li class=""><a href="@Url.Action("ProfileData", "User")">PROFIL</a></li>
                         <!-- class active !!! -->

@@ -61,6 +61,15 @@ namespace innovation4austria.web.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ungültige Daten beim Ändern der Firmen-Daten! ähnelt.
+        /// </summary>
+        public static string CompanyDataInvalid {
+            get {
+                return ResourceManager.GetString("CompanyDataInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ungültiges Datum ähnelt.
         /// </summary>
         public static string DataTypeDate {

@@ -1,0 +1,63 @@
+﻿@model innovation4austria.web.Models.CompanyModel
+@{
+    ViewBag.Title = "innovation4austria - Firma verwalten";
+}
+
+@using (Html.BeginForm("SaveDetail", "Company", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.HiddenFor(x => x.ID)
+    <div class="row">
+        <h3 class="col-md-12">Firmen Daten</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.LabelFor(x => x.Name)
+        </div>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(x => x.Name, new { placeholder = "Firmenname", @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.LabelFor(x => x.Street)
+        </div>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(x => x.Street, new { placeholder = "Adresse", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Street)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.LabelFor(x => x.Number)
+        </div>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(x => x.Number, new { placeholder = "Nummer", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Number)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.LabelFor(x => x.Zip)
+        </div>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(x => x.Zip, new { placeholder = "PLZ", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Zip)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.LabelFor(x => x.City)
+        </div>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(x => x.City, new { placeholder = "Ort", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.City)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Speichern</button>
+        </div>
+    </div>
+}

@@ -392,9 +392,9 @@ namespace innovation4austria.logic
             return result;
         }
 
-        public static List<User> GetCompanyUser(int companyId)
+        public static List<User> GetCompanyUsers(int companyId)
         {
-            log.Info("GetCompanyUser(companyId)");
+            log.Info("GetCompanyUsers(companyId)");
 
             List<User> companyUsers = null;
 
@@ -412,9 +412,9 @@ namespace innovation4austria.logic
                 }
                 catch (Exception ex)
                 {
-                    log.Error("Exception in GetCompanyUser", ex);
+                    log.Error("Exception in GetCompanyUsers", ex);
                     if (ex.InnerException != null)
-                        log.Error("Exception in GetCompanyUser (inner)", ex.InnerException);
+                        log.Error("Exception in GetCompanyUsers (inner)", ex.InnerException);
                     throw;
                 }
             }

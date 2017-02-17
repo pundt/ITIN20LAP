@@ -8,6 +8,7 @@ using log4net;
 
 namespace innovation4austria.logic
 {
+
     public class CompanyAdministration
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -50,7 +51,7 @@ namespace innovation4austria.logic
         {
             log.Info("GetCompany(id)");
 
-            if (id < 0)
+            if (id <= 0)
                 throw new ArgumentException("Invalid value for id", nameof(id));
             else
             {
@@ -65,14 +66,56 @@ namespace innovation4austria.logic
                 }
                 catch (Exception ex)
                 {
-                    log.Error("Exception in GetCompanies", ex);
+                    log.Error("Exception in GetCompany", ex);
                     if (ex.InnerException != null)
-                        log.Error("Exception in GetCompanies (inner)", ex.InnerException);
+                        log.Error("Exception in GetCompany (inner)", ex.InnerException);
                     throw;
                 }
                 
                 return company;
             }
+        }
+
+        public static bool SaveCompanyData(int companyId, string companyName, string street, string number, string zip, string city)
+        {
+            log.Info("SaveCompanyData(companyId, companyName, street, number, zip, city)");
+            bool result = false;
+
+            if (string.IsNullOrEmpty(companyName))
+                throw new ArgumentNullException($"{nameof(companyName)} is null or empty");
+            if (string.IsNullOrEmpty(street))
+                throw new ArgumentNullException($"{nameof(street)} is null or empty");
+            if (string.IsNullOrEmpty(number))
+                throw new ArgumentNullException($"{nameof(number)} is null or empty");
+            if (companyId<=0)
+                throw new ArgumentNullException($"{nameof(companyId)} invalid");
+
+            using (var context = new innovation4austriaEntities())
+            {
+                try
+                {
+                    Company curCompany = context.AllCompanies.FirstOrDefault(x => x.ID == companyId);
+                    if (curCompany!=null)
+                    {
+                        curCompany.Name = companyName;
+                        curCompany.Street = street;
+                        curCompany.Number = number;
+                        curCompany.Zip = zip;
+                        curCompany.City = city;
+                        context.SaveChanges();
+                        result = true;
+                    } 
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Exception in SaveCompanyData", ex);
+                    if (ex.InnerException != null)
+                        log.Error("Exception in SaveCompanyData (inner)", ex.InnerException);
+                    throw;
+                }
+            }
+
+            return result;
         }
     }
 }

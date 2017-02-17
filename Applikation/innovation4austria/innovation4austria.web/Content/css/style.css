@@ -28,7 +28,8 @@ body {
 }
 /*JUST ADDED PADDING IN SECTIONS OF TEMPLATE */
 section {
-    padding-top: 150px;
+    padding-top: 120px;
+    padding-bottom: 100px;
 }
 /* ADDED PADDING IN NAVBAR */
 .navbar {
@@ -161,7 +162,7 @@ section {
 }
 
     #contact .form-control {
-        height: 60px;
+        height: 40px;
     }
 
 .cnt {
@@ -178,7 +179,7 @@ section {
     FOOTER SECTION
     ======================================*/
 #footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;

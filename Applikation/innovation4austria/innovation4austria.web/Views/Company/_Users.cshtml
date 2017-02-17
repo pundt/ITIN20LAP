@@ -1,0 +1,42 @@
+﻿@model IEnumerable<innovation4austria.web.Models.ProfileDataModel>
+@{
+    ViewBag.Title = "Firmen Mitarbeiter";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Firmen Mitarbeiter</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        Username
+    </div>
+    <div class="col-md-2">
+        Vorname
+    </div>
+    <div class="col-md-3">
+        Nachname
+    </div>
+    <div class="col-md-2">
+        
+    </div>
+</div>
+@foreach (var companyUser in Model)
+{
+    <div class="row">
+        <div class="col-md-5">
+            @companyUser.Username
+        </div>
+        <div class="col-md-2">
+            @companyUser.Firstname
+        </div>
+        <div class="col-md-3">
+            @companyUser.Lastname
+        </div>
+        <div class="col-md-2">
+            <a href="@Url.Action("UserDetail", "Company", new { id = companyUser.ID })">Bearbeiten</a>
+        </div>
+    </div>
+}
+
