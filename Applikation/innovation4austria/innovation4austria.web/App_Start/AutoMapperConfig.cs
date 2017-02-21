@@ -17,8 +17,8 @@ namespace innovation4austria.web
         public static void RegisterMappings()
         {
             var commonConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<CommonProfile>());
-            var innovationMapper = new MapperConfiguration(cfg => cfg.AddProfile<CommonProfile>());
-            var startupMapper = new MapperConfiguration(cfg => cfg.AddProfile<CommonProfile>());
+            var innovationMapper = new MapperConfiguration(cfg => cfg.AddProfile<InnovationProfile>());
+            var startupMapper = new MapperConfiguration(cfg => cfg.AddProfile<StartupProfile>());
 
             CommonMapper = commonConfiguration.CreateMapper();
             InnovationMapper = innovationMapper.CreateMapper();
@@ -39,7 +39,7 @@ namespace innovation4austria.web
     {
         protected override void Configure()
         {
-
+            base.CreateMap<User, EmployeeDataModel>();
         }
     }
 

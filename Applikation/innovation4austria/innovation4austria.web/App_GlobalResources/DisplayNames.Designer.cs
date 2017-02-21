@@ -151,7 +151,7 @@ namespace innovation4austria.web.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Benutzername ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Benutzer ähnelt.
         /// </summary>
         public static string Username {
             get {

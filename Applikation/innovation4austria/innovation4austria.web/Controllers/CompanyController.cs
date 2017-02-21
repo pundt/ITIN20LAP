@@ -119,5 +119,129 @@ namespace innovation4austria.web.Controllers
 
             return RedirectToAction("Detail", new { id = model.ID });
         }
+
+        [HttpGet]
+        public ActionResult Employee(int id = 0)
+        {
+            log.Info("GET - Company - Employee()");
+
+            if (id <= 0)
+                return HttpNotFound("Invalid Employee ID");
+
+            User employee = UserAdministration.GetUser(id);
+            EmployeeDataModel dataModel = AutoMapperConfig.InnovationMapper.Map<EmployeeDataModel>(employee);
+            EmployeeModel model = new EmployeeModel()
+            {
+                EmployeeData = dataModel,
+                EmployeePassword = new EmployeePasswordModel()
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveEmployeeData(EmployeeDataModel model)
+        {
+            log.Info("POST - Company - SaveEmployeeData(EmployeeDataModel)");
+
+            if (ModelState.IsValid)
+            {
+                // call logic and modify employeeData
+                try
+                {
+                    ProfileChangeResult result = UserAdministration.SaveEmployeeData(model.ID, model.Firstname, model.Lastname);
+                    if (result == ProfileChangeResult.Success)
+                    {
+
+                        TempData[Constants.Messages.SUCCESS] = ValidationMessages.SaveSuccess;
+                    }
+                    else
+                    {
+                        TempData[Constants.Messages.ERROR] = ValidationMessages.SaveError;
+                    }
+                }
+                catch (Exception)
+                {
+                    TempData[Constants.Messages.ERROR] = ValidationMessages.SaveError;
+                }
+            }
+            else
+            {
+                TempData[Constants.Messages.WARNING] = ValidationMessages.ProfileDataInvalid;
+            }
+
+            return RedirectToAction("Employee", new { id = model.ID });
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveEmployeePassword(EmployeePasswordModel model)
+        {
+            log.Info("POST - Company - SaveEmployeePassword(EmployeePasswordModel)");
+
+            if (ModelState.IsValid)
+            {
+                // call logic and modify employee password
+                if (UserAdministration.ChangePassword(model.ID, model.OldPassword, model.NewPassword) == PasswordChangeResult.Success)
+                {
+
+                    TempData[Constants.Messages.SUCCESS] = ValidationMessages.SaveSuccess;
+                }
+                else
+                {
+                    TempData[Constants.Messages.ERROR] = ValidationMessages.SaveError;
+                }
+            }
+            else
+            {
+                TempData[Constants.Messages.WARNING] = ValidationMessages.ProfilePasswordInvalid;
+            }
+
+            return RedirectToAction("Employee", new { id = model.ID });
+        }
+
+        [HttpGet]
+        public ActionResult CreateEmployee(int id)
+        {
+            log.Info("GET - Company - CreateEmployee(id)");
+
+            CreateEmployeeModel model = new CreateEmployeeModel()
+            {
+                CompanyID = id
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateEmployee(CreateEmployeeModel model)
+        {
+            log.Info("POST - Company - CreateEmployee(CreateEmployeeModel)");
+            ActionResult result = View(model);
+
+            if (ModelState.IsValid)
+            {
+                if (UserAdministration.CreateCompanyUser(model.Username, model.NewPassword, model.Firstname, model.Lastname, model.CompanyID))
+                {
+                    TempData[Constants.Messages.SUCCESS] = ValidationMessages.SaveSuccess;
+                    result = RedirectToAction("Detail", new { id = model.CompanyID });
+                }
+                else
+                {
+                    TempData[Constants.Messages.ERROR] = ValidationMessages.SaveError;
+
+                }  
+            }
+            else
+            {
+                TempData[Constants.Messages.WARNING] = ValidationMessages.CreateEmployeeInvalid;
+            }
+
+            return result;
+        }
     }
 }

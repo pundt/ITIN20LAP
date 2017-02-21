@@ -138,7 +138,11 @@
     </Compile>
     <Compile Include="Models\CompanyDetailModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\CreateEmployeeModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\EmployeeDataModel.cs" />
+    <Compile Include="Models\EmployeePasswordModel.cs" />
     <Compile Include="Models\ProfilePasswordModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />
@@ -212,7 +216,11 @@
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Company\Detail.cshtml" />
     <Content Include="Views\Company\_Detail.cshtml" />
-    <Content Include="Views\Company\_Users.cshtml" />
+    <Content Include="Views\Company\_Employees.cshtml" />
+    <Content Include="Views\Company\Employee.cshtml" />
+    <Content Include="Views\Company\_EmployeeData.cshtml" />
+    <Content Include="Views\Company\_EmployeePassword.cshtml" />
+    <Content Include="Views\Company\CreateEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

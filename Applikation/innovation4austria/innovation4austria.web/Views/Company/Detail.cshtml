@@ -13,7 +13,16 @@
         @Html.Partial("_Detail", Model.Company)
     </div>
     <div class="col-md-offset-1 col-md-5">
-        @Html.Partial("_Users", Model.CompanyUsers)
+        @Html.Partial("_Employees", Model.CompanyUsers)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-5 text-center">
+        @Html.ActionLink("Zurück zur Übersicht", "Index", "Company")
+    </div>
+    <div class="col-md-offset-1 col-md-5 text-center">
+        @Html.ActionLink("Neuer Mitarbeiter", "CreateEmployee", "Company", new { id = Model.Company.ID }, null)
     </div>
 </div>
 

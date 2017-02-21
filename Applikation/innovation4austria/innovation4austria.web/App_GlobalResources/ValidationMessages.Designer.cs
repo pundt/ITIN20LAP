@@ -70,6 +70,15 @@ namespace innovation4austria.web.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ungültige Daten beim Anlegen des Mitarbeiters! ähnelt.
+        /// </summary>
+        public static string CreateEmployeeInvalid {
+            get {
+                return ResourceManager.GetString("CreateEmployeeInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ungültiges Datum ähnelt.
         /// </summary>
         public static string DataTypeDate {

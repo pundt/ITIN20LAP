@@ -90,6 +90,61 @@ namespace innovation4austria.logic
             return result;
         }
 
+        public static PasswordChangeResult ChangePassword(int id, string oldPassword, string newPassword)
+        {
+            PasswordChangeResult result = PasswordChangeResult.UsernameInvalid;
+
+            log.Info("ChangePassword(id, oldPassword, newPassword)");
+
+            if (id<=0)
+                throw new ArgumentException($"Invalid {nameof(id)}");
+            else if (string.IsNullOrEmpty(newPassword))
+                throw new ArgumentNullException(nameof(newPassword));
+            else if (string.IsNullOrEmpty(oldPassword))
+                throw new ArgumentNullException(nameof(oldPassword));
+            else
+            {
+                using (var context = new innovation4austriaEntities())
+                {
+                    try
+                    {
+                        User curUser = context.AllUsers.Where(x => x.ID == id).FirstOrDefault();
+
+                        if (curUser == null)
+                        {
+                            result = PasswordChangeResult.UsernameInvalid;
+                        }
+                        else if (!curUser.Active)
+                        {
+                            result = PasswordChangeResult.UserInactive;
+                        }
+                        else if (!curUser.Password.SequenceEqual(Helper.GetSHA2(oldPassword)))
+                        {
+                            result = PasswordChangeResult.PasswortInvalid;
+                        }
+                        else
+                        {
+                            log4net.LogicalThreadContext.Properties["idUser"] = curUser.ID;
+
+                            curUser.Password = Helper.GetSHA2(newPassword);
+                            context.SaveChanges();
+
+                            result = PasswordChangeResult.Success;
+                            log.Info("Changed password successfully!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error("Exception in ChangePassword", ex);
+                        if (ex.InnerException != null)
+                            log.Error("Exception in ChangePassword (inner)", ex.InnerException);
+                        throw;
+                    }
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// Saves new first- and lastname for the given userName
         /// </summary>
@@ -143,6 +198,66 @@ namespace innovation4austria.logic
                     log.Error("Exception in SaveProfileData", ex);
                     if (ex.InnerException != null)
                         log.Error("Exception in SaveProfileData (inner)", ex.InnerException);
+                    throw;
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Saves new first- and lastname for the given userName
+        /// </summary>
+        /// <param name="username">the user to change data for</param>
+        /// <param name="firstname">new firstname</param>
+        /// <param name="lastname">new lastname</param>
+        /// <returns><see cref="ProfileChangeResult"/> SUCCESS if information could be saved, otherelse corresponding error member</returns>
+        /// <exception cref="Exception">in case saving information fails or unknown user</exception>
+        /// <exception cref="ArgumentNullException">if user-, first- or lastname is null or empty</exception>
+        public static ProfileChangeResult SaveEmployeeData(int idEmployee, string firstname, string lastname)
+        {
+            log.Info("SaveProfileData(username, firstname, lastname)");
+            ProfileChangeResult result = ProfileChangeResult.UsernameInvalid;
+
+            if (idEmployee<=0)
+                throw new ArgumentException($"Invalid {nameof(idEmployee)} ");
+            if (string.IsNullOrEmpty(firstname))
+                throw new ArgumentNullException($"{nameof(firstname)} is null or empty");
+            if (string.IsNullOrEmpty(lastname))
+                throw new ArgumentNullException($"{nameof(lastname)} is null or empty");
+
+            using (var context = new innovation4austriaEntities())
+            {
+                try
+                {
+                    User currentUser = context.AllUsers.FirstOrDefault(x => x.ID == idEmployee);
+                    if (currentUser != null)
+                    {
+                        if (currentUser.Active)
+                        {
+                            currentUser.FirstName = firstname;
+                            currentUser.LastName = lastname;
+                            context.SaveChanges();
+                            log.Info("Employee Data changed successfully!");
+                            result = ProfileChangeResult.Success;
+                        }
+                        else
+                        {
+                            log.Info("SaveEmployeeData - UserInactive");
+                            result = ProfileChangeResult.UserInactive;
+                        }
+                    }
+                    else
+                    {
+                        log.Info("SaveEmployeeData - UsernameInvalid");
+                        result = ProfileChangeResult.UsernameInvalid;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Exception in SaveEmployeeData", ex);
+                    if (ex.InnerException != null)
+                        log.Error("Exception in SaveEmployeeData (inner)", ex.InnerException);
                     throw;
                 }
             }
@@ -232,6 +347,35 @@ namespace innovation4austria.logic
                     if (user == null)
                     {
                         log.Info("Unknown username!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Exception in GetUser", ex);
+                    if (ex.InnerException != null)
+                        log.Error("Exception in GetUser (inner)", ex.InnerException);
+                    throw;
+                }
+            }
+
+            return user;
+        }
+
+        public static User GetUser(int id)
+        {
+            log.Info("GetUser(id)");
+
+            User user = null;
+
+            using (var context = new innovation4austriaEntities())
+            {
+                try
+                {
+                    user = context.AllUsers.Where(x => x.ID == id).FirstOrDefault();
+
+                    if (user == null)
+                    {
+                        log.Info("Unknown ID!");
                     }
                 }
                 catch (Exception ex)

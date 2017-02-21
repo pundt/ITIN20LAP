@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h1>Firmen Mitarbeiter</h1>
+        <h3>Firmen Mitarbeiter</h3>
     </div>
 </div>
 <div class="row">
@@ -35,7 +35,7 @@
             @companyUser.Lastname
         </div>
         <div class="col-md-2">
-            <a href="@Url.Action("UserDetail", "Company", new { id = companyUser.ID })">Bearbeiten</a>
+            <a href="@Url.Action("Employee", "Company", new { id = companyUser.ID })">Bearbeiten</a>
         </div>
     </div>
 }

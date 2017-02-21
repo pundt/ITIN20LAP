@@ -148,7 +148,7 @@
     <value>Adresse</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Benutzername</value>
+    <value>Benutzer</value>
   </data>
   <data name="Zip" xml:space="preserve">
     <value>PLZ</value>

@@ -120,6 +120,9 @@
   <data name="CompanyDataInvalid" xml:space="preserve">
     <value>Ungültige Daten beim Ändern der Firmen-Daten!</value>
   </data>
+  <data name="CreateEmployeeInvalid" xml:space="preserve">
+    <value>Ungültige Daten beim Anlegen des Mitarbeiters!</value>
+  </data>
   <data name="DataTypeDate" xml:space="preserve">
     <value>Ungültiges Datum</value>
   </data>
