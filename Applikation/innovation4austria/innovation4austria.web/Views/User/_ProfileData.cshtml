@@ -14,36 +14,36 @@
     -->
     @*@Html.HiddenFor(x => x.ID)*@
     <div class="row">
-        <h3 class="col-md-12">Meine Daten</h3>
+        <h3 class="col-xs-12">Meine Daten</h3>
     </div>
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 col-xs-12">
             @Html.LabelFor(x => x.Username)
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-10 col-xs-12">
             @Html.TextBoxFor(x => x.Username, new { disabled = "disabled", @class = "form-control" })
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 col-xs-12">
             @Html.LabelFor(x => x.Firstname)
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-10 col-xs-12">
             @Html.TextBoxFor(x => x.Firstname, new { placeholder = "Vorname", @class = "form-control" })
             @Html.ValidationMessageFor(x => x.Firstname)
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 col-xs-12">
             @Html.LabelFor(x => x.Lastname)
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-10 col-xs-12">
             @Html.TextBoxFor(x => x.Lastname, new { placeholder = "Nachname", @class = "form-control" })
             @Html.ValidationMessageFor(x => x.Lastname)
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 text-center">
+        <div class="col-xs-12 text-center">
             <button type="submit" class="btn btn-primary btn-lg">Speichern</button>
         </div>
     </div>

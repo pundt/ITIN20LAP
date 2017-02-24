@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace innovation4austria.web.Models
 {
@@ -15,7 +16,9 @@ namespace innovation4austria.web.Models
         [StringLength(20,
             ErrorMessageResourceName = Validation.MAXLENGTH,
             ErrorMessageResourceType = typeof(ValidationMessages))]
-        [Editable(false)]
+        [Remote(Validation.USERAVAILABLEACTION, Validation.CONTROLLER, 
+            ErrorMessageResourceName = Validation.USERNAMENOTAVAILABLE,
+            ErrorMessageResourceType = typeof(ValidationMessages))]
         public string Username { get; set; }
 
         [Display(ResourceType = typeof(DisplayNames), Name = nameof(DisplayNames.Firstname))]

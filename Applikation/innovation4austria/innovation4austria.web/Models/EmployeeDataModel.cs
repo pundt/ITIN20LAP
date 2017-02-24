@@ -10,6 +10,7 @@ namespace innovation4austria.web.Models
     public class EmployeeDataModel
     {
         public int ID { get; set; }
+        public int ID_Company { get; set; }
 
         [Display(ResourceType = typeof(DisplayNames), Name = nameof(DisplayNames.Username))]
         [StringLength(20,

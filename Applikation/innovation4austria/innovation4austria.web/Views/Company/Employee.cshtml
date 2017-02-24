@@ -4,22 +4,22 @@
 }
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-xs-12">
         <h1>Firmen-Mitarbeiter verwalten</h1>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-offset-1 col-md-5">
+    <div class="col-sm-6 col-xs-12">
         @Html.Partial("_EmployeeData", Model.EmployeeData)
     </div>
-    <div class="col-md-offset-1 col-md-5">
+    <div class="col-sm-6 col-xs-12">
         @Html.Partial("_EmployeePassword", Model.EmployeePassword)
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-12 text-center">
-        @Html.ActionLink("Zurück zur Firma", "Detail", "Company", new { id = Url.RequestContext.RouteData.Values["id"] }, null)
+    <div class="col-xs-12 text-center">
+        @Html.ActionLink("Zurück zur Firma", "Detail", "Company", new { id = Model.EmployeeData.ID_Company }, null)
     </div>
 </div>
 

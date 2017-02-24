@@ -317,15 +317,19 @@ namespace innovation4austria.logic
                         FirstName = firstname,
                         LastName = lastname,
                         ID_Company = idCompany,
-                        ID_Role = 2 // startup, company
+                        ID_Role = 2, // startup, company
+                        Active = true
                     };
                     context.AllUsers.Add(user);
                     context.SaveChanges();
+                    created = true;
                 }
             }
             catch (Exception ex)
             {
-
+                log.Error("Exception in CreateCompanyUser", ex);
+                if (ex.InnerException != null)
+                    log.Error("Exception in CreateCompanyUser (inner)", ex.InnerException);
                 throw;
             }
 

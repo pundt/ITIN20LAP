@@ -167,5 +167,14 @@ namespace innovation4austria.web.App_GlobalResources {
                 return ResourceManager.GetString("SaveSuccess", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Benutzername nicht verfügbar! ähnelt.
+        /// </summary>
+        public static string UsernameNotAvailable {
+            get {
+                return ResourceManager.GetString("UsernameNotAvailable", resourceCulture);
+            }
+        }
     }
 }

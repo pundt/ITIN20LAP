@@ -153,4 +153,7 @@
   <data name="SaveSuccess" xml:space="preserve">
     <value>Ihre Änderungen wurden erfolgreich gespeichert!</value>
   </data>
+  <data name="UsernameNotAvailable" xml:space="preserve">
+    <value>Benutzername nicht verfügbar!</value>
+  </data>
 </root>

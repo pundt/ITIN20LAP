@@ -12,7 +12,7 @@
    GENERAL STYLES
  ============================================================ */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: HelveticaNeue,'Open Sans', sans-serif;
 }
 
 .pad-top {
@@ -52,7 +52,7 @@ section {
 .navbar-inverse {
     background-color: #FFF;
     border-color: #7eb9f8;
-    font-size: 25px;
+    font-size: 22px;
 }
 
     .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
@@ -77,6 +77,7 @@ section {
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
     color: #fff;
     background-color: #7eb9f8;
+    border-radius: 20px 0 20px 0;
 }
 /*========================================
     HOME SECTION
@@ -195,4 +196,33 @@ section {
     ======================================*/
 .row {
     padding-top: 15px;
+}
+
+@font-face{
+    font-family:"HelveticaNeue";
+    src:url("https://static.parastorage.com/services/third-party/fonts/Helvetica/Fonts/ae1656aa-5f8f-4905-aed0-93e667bd6e4a.eot?#iefix");
+    src:url("https://static.parastorage.com/services/third-party/fonts/Helvetica/Fonts/ae1656aa-5f8f-4905-aed0-93e667bd6e4a.eot?#iefix") format("eot"),url("https://static.parastorage.com/services/third-party/fonts/Helvetica/Fonts/530dee22-e3c1-4e9f-bf62-c31d510d9656.woff") format("woff"),url("https://static.parastorage.com/services/third-party/fonts/Helvetica/Fonts/688ab72b-4deb-4e15-a088-89166978d469.ttf") format("truetype"),url("https://static.parastorage.com/services/third-party/fonts/Helvetica/Fonts/7816f72f-f47e-4715-8cd7-960e3723846a.svg#7816f72f-f47e-4715-8cd7-960e3723846a") format("svg");
+}
+
+.field-validation-error {
+    color: #ff0000;
+}
+
+.title4 {
+    color: #7eb9f8;
+}
+
+div.title {
+    font-size: 30px;
+    display: inline;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    h1, div.title {
+        font-size: 26px;
+    }
 }
