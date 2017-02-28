@@ -132,6 +132,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -140,6 +141,7 @@
     <Compile Include="Models\CompanyDetailModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\CreateEmployeeModel.cs" />
+    <Compile Include="Models\FacilityModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\EmployeeDataModel.cs" />
@@ -147,6 +149,7 @@
     <Compile Include="Models\ProfilePasswordModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />
+    <Compile Include="Models\RoomFilterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_GlobalResources\DisplayNames.Designer.cs">
       <DependentUpon>DisplayNames.resx</DependentUpon>
@@ -222,6 +225,7 @@
     <Content Include="Views\Company\_EmployeeData.cshtml" />
     <Content Include="Views\Company\_EmployeePassword.cshtml" />
     <Content Include="Views\Company\CreateEmployee.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
