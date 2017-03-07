@@ -14,6 +14,9 @@ namespace innovation4austria.web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
+                        "~/Scripts/jquery.unobtrusive-ajax.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/customjs").Include(
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/jquery.easing.min.js",

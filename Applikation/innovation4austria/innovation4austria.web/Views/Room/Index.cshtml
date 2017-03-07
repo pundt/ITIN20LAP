@@ -4,6 +4,36 @@
 }
 
 <!-- Filter -->
+@using (Ajax.BeginForm("Search", "Room", new AjaxOptions()
+{
+   UpdateTargetId = "result"
+}))
+{
+    @Html.AntiForgeryToken()
+    <text>
+    start <input type="date" name="start"/><br/>
+
+    ende <input type="date" name="ende" /><br />
+
+    Ausstattung<br/>
+ <input type="checkbox" name="ausstattung" value="1" />WLAN<br />
+<input type="checkbox" name="ausstattung" value="2" />Beamer<br />
+<input type="checkbox" name="ausstattung" value="3" />Computer<br />
+<input type="checkbox" name="ausstattung" value="4" />Sessel<br />
+
+Standort <select name="standort">
+    <option value="1">Linz</option>
+    <option value="2">Wien</option>
+    </select>
+
+    Art <select name="art">
+    <option value="1">Seminarraum</option>
+    <option value="2">Konferenzraum</option>
+</select>
+<br/>
+<input type="submit" value="Suchen"/>
+</text>
+}
 
 <!-- von, bis, art-->
 
@@ -16,3 +46,6 @@
 
 
 <!-- Suchtreffer List -->
+<div id="result">
+    @Html.Partial("_Search", null)
+</div>

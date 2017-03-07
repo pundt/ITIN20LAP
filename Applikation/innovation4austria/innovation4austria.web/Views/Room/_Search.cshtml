@@ -1,0 +1,19 @@
+﻿@model IEnumerable<innovation4austria.web.Models.SearchResultModel>
+@{
+    ViewBag.Title = "_Search";
+}
+
+<h2>_Search</h2>
+@if (Model != null)
+{
+
+    foreach (var searchResult in Model)
+    {
+        @searchResult.Description <br />
+    }
+
+}
+else
+{
+    <text>bin noch leer!</text>
+}
