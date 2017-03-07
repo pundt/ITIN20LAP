@@ -1,4 +1,5 @@
-﻿
+﻿@model innovation4austria.web.Models.RoomFilterModel
+
 @{
     ViewBag.Title = "Index";
 }
@@ -26,6 +27,8 @@ Standort <select name="standort">
     <option value="2">Wien</option>
     </select>
 
+@Html.DropDownList("standort", new SelectList(Model.Buildings,"ID", "Label"))
+
     Art <select name="art">
     <option value="1">Seminarraum</option>
     <option value="2">Konferenzraum</option>
@@ -47,5 +50,5 @@ Standort <select name="standort">
 
 <!-- Suchtreffer List -->
 <div id="result">
-    @Html.Partial("_Search", null)
+    @Html.Partial("_Search", new List<innovation4austria.web.Models.SearchResultModel>() )
 </div>

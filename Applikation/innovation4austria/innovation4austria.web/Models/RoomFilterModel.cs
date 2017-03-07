@@ -8,13 +8,8 @@ namespace innovation4austria.web.Models
 {
     public class RoomFilterModel
     {
-        [Required]
-        [DataType(DataType.Date)]
-        public string Start { get; set; }
-        [Required]
-        [DataType(DataType.Date)]
-        public string End { get; set; }
-
         public List<FacilityModel> Facilities{ get; set; }
+
+        public List<BuildingModel> Buildings { get; set;  }
     }
 }

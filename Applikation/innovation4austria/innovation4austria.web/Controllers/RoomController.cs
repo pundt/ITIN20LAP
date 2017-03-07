@@ -13,7 +13,21 @@ namespace innovation4austria.web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            RoomFilterModel model = new Models.RoomFilterModel();
+
+            // gehe in die Datenbank
+            model.Buildings = new List<BuildingModel>();
+            for (int i = 0; i < 10; i++)
+            {
+                model.Buildings.Add(new BuildingModel()
+                {
+                    ID = i,
+                    Number = "number " + i,
+                    Street = "street " + i
+                });
+            }
+
+            return View(model);
         }
 
         [HttpPost]
