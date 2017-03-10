@@ -22,6 +22,13 @@ FOREIGN KEY (idBuilding)
 REFERENCES Buildings(id);
 GO
 
+ALTER TABLE [Rooms]
+ADD
+CONSTRAINT FK_Room_RoomType
+FOREIGN KEY (idRoomType)
+REFERENCES RoomType(id);
+GO
+
 ALTER TABLE [RoomFacilities]
 ADD
 CONSTRAINT FK_RoomFacilities_Room

@@ -12,20 +12,17 @@ namespace innovation4austria.data
     using System;
     using System.Collections.Generic;
     
-    public partial class Facility
+    public partial class Type
     {
-        public Facility()
+        public Type()
         {
-            this.AllRoomFacilities = new HashSet<RoomFacility>();
+            this.Rooms = new HashSet<Room>();
         }
     
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Order { get; set; }
         public bool Active { get; set; }
-        public byte[] facilityImage { get; set; }
-        public byte[] facilityImageActive { get; set; }
     
-        public virtual ICollection<RoomFacility> AllRoomFacilities { get; set; }
+        public virtual ICollection<Room> Rooms { get; set; }
     }
 }

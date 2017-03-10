@@ -36,5 +36,6 @@ namespace innovation4austria.data
         public DbSet<RoomFacility> AllRoomFacilities { get; set; }
         public DbSet<Room> AllRooms { get; set; }
         public DbSet<User> AllUsers { get; set; }
+        public DbSet<Type> AllTypes { get; set; }
     }
 }

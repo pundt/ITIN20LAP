@@ -41,18 +41,30 @@ CREATE TABLE [Buildings] (
 
 CREATE TABLE [Rooms] (
 	id INT IDENTITY NOT NULL,
-	idBuilding int not null,
+	
 	size decimal not null,
 	pricePerDay decimal not null,
 	roomName NVARCHAR(100) NOT NULL,
 	orderNumber int null,
+
+	idBuilding int not null,
+	idRoomType int not null,
+
 	active bit default 1 not null
 );
+
+create table [RoomType] (
+	id int identity not null,
+	roomType nvarchar(255) not null,
+	active bit default 1 not null
+)
 
 CREATE TABLE [Facilities] (
 	id INT IDENTITY NOT NULL,
 	facilityName NVARCHAR(100) NOT NULL,
 	orderNumber int null,
+	facilityImage varbinary(max) null,
+	facilityImageActive varbinary(max) null,
 	active bit default 1 not null
 );
 

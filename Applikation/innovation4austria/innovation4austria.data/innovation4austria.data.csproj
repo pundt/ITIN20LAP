@@ -98,6 +98,9 @@
     <Compile Include="RoomFacility.cs">
       <DependentUpon>i4aModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Type.cs">
+      <DependentUpon>i4aModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>i4aModel.tt</DependentUpon>
     </Compile>

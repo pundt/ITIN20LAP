@@ -27,9 +27,11 @@ namespace innovation4austria.data
         public string RoomName { get; set; }
         public Nullable<int> Order { get; set; }
         public bool Active { get; set; }
+        public int ID_Type { get; set; }
     
         public virtual ICollection<Booking> AllBookings { get; set; }
         public virtual Building Building { get; set; }
         public virtual ICollection<RoomFacility> AllRoomFacilities { get; set; }
+        public virtual Type Type { get; set; }
     }
 }

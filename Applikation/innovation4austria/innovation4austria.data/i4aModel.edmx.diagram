@@ -27,6 +27,8 @@
         <AssociationConnector Association="innovation4austriaModel.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="innovation4austriaModel.FK_RoomFacilities_Room" ManuallyRouted="false" />
         <AssociationConnector Association="innovation4austriaModel.BillDetails" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="innovation4austriaModel.Type" Width="1.5" PointX="7.25" PointY="9.25" />
+        <AssociationConnector Association="innovation4austriaModel.FK_Room_RoomType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -72,6 +72,8 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="facilityName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="orderNumber" Type="int" />
+          <Property Name="facilityImage" Type="varbinary(max)" />
+          <Property Name="facilityImageActive" Type="varbinary(max)" />
           <Property Name="active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Log">
@@ -109,11 +111,20 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idBuilding" Type="int" Nullable="false" />
           <Property Name="size" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="pricePerDay" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="roomName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="orderNumber" Type="int" />
+          <Property Name="idBuilding" Type="int" Nullable="false" />
+          <Property Name="idRoomType" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoomType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roomType" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
@@ -225,6 +236,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Room_RoomType">
+          <End Role="RoomType" Type="Self.RoomType" Multiplicity="1" />
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="idRoomType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_RoomFacilities_Facilities">
           <End Role="Facilities" Type="Self.Facilities" Multiplicity="1" />
           <End Role="RoomFacilities" Type="Self.RoomFacilities" Multiplicity="*" />
@@ -285,6 +308,7 @@
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoomFacilities" EntityType="Self.RoomFacilities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomType" EntityType="Self.RoomType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BillDetails_Bill" Association="Self.FK_BillDetails_Bill">
             <End Role="Bills" EntitySet="Bills" />
@@ -316,6 +340,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Room_Building" Association="Self.FK_Room_Building">
             <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_RoomType" Association="Self.FK_Room_RoomType">
+            <End Role="RoomType" EntitySet="RoomType" />
             <End Role="Rooms" EntitySet="Rooms" />
           </AssociationSet>
           <AssociationSet Name="FK_RoomFacilities_Facilities" Association="Self.FK_RoomFacilities_Facilities">
@@ -411,6 +439,8 @@
           <Property Name="Order" Type="Int32" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AllRoomFacilities" Relationship="Self.FK_RoomFacilities_Facilities" FromRole="Facilities" ToRole="RoomFacilities" />
+          <Property Name="facilityImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="facilityImageActive" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="LogEntry">
           <Key>
@@ -460,6 +490,8 @@
           <NavigationProperty Name="AllBookings" Relationship="Self.FK_Bookings_Room" FromRole="Rooms" ToRole="Bookings" />
           <NavigationProperty Name="Building" Relationship="Self.FK_Room_Building" FromRole="Rooms" ToRole="Buildings" />
           <NavigationProperty Name="AllRoomFacilities" Relationship="Self.FK_RoomFacilities_Room" FromRole="Rooms" ToRole="RoomFacilities" />
+          <Property Name="ID_Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Type" Relationship="innovation4austriaModel.FK_Room_RoomType" FromRole="Room" ToRole="RoomType" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -657,7 +689,33 @@
             <End Role="Bills" EntitySet="AllBills" />
             <End Role="BookingDetails" EntitySet="AllBookingDetails" />
           </AssociationSet>
+          <EntitySet Name="AllTypes" EntityType="innovation4austriaModel.Type" />
+          <AssociationSet Name="FK_Room_RoomType" Association="innovation4austriaModel.FK_Room_RoomType">
+            <End Role="RoomType" EntitySet="AllTypes" />
+            <End Role="Room" EntitySet="AllRooms" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Rooms" Relationship="innovation4austriaModel.FK_Room_RoomType" FromRole="RoomType" ToRole="Room" />
+        </EntityType>
+        <Association Name="FK_Room_RoomType">
+          <End Type="innovation4austriaModel.Type" Role="RoomType" Multiplicity="1" />
+          <End Type="innovation4austriaModel.Room" Role="Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="ID_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -724,6 +782,8 @@
           <EntitySetMapping Name="AllFacilities">
             <EntityTypeMapping TypeName="innovation4austriaModel.Facility">
               <MappingFragment StoreEntitySet="Facilities">
+                <ScalarProperty Name="facilityImageActive" ColumnName="facilityImageActive" />
+                <ScalarProperty Name="facilityImage" ColumnName="facilityImage" />
                 <ScalarProperty Name="ID" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="facilityName" />
                 <ScalarProperty Name="Order" ColumnName="orderNumber" />
@@ -766,6 +826,7 @@
           <EntitySetMapping Name="AllRooms">
             <EntityTypeMapping TypeName="innovation4austriaModel.Room">
               <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="ID_Type" ColumnName="idRoomType" />
                 <ScalarProperty Name="ID" ColumnName="id" />
                 <ScalarProperty Name="ID_Building" ColumnName="idBuilding" />
                 <ScalarProperty Name="Size" ColumnName="size" />
@@ -798,6 +859,15 @@
               <ScalarProperty Name="ID" ColumnName="idBookingDetail" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="AllTypes">
+            <EntityTypeMapping TypeName="innovation4austriaModel.Type">
+              <MappingFragment StoreEntitySet="RoomType">
+                <ScalarProperty Name="Active" ColumnName="active" />
+                <ScalarProperty Name="Name" ColumnName="roomType" />
+                <ScalarProperty Name="ID" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

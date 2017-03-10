@@ -1,4 +1,5 @@
 ﻿using innovation4austria.web.Models;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,12 @@ namespace innovation4austria.web.Controllers
     [Authorize]
     public class RoomController : Controller
     {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         [HttpGet]
         public ActionResult Index()
         {
+            log.Info("GET - Room - Index");
             RoomFilterModel model = new Models.RoomFilterModel();
 
             // gehe in die Datenbank
@@ -32,8 +36,10 @@ namespace innovation4austria.web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken()]
-        public ActionResult Search(string start, string ende, int[] ausstattung, int standort, int art)
+        public ActionResult Search(string start, string end, int[] idFacilities, int idBuilding, int idRoomType)
         {
+            log.Info("POST - Room - Search");            
+
             List<SearchResultModel> model = new List<SearchResultModel>();
             for (int i = 0; i < 10; i++)
             {
