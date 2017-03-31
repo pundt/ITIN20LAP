@@ -1,7 +1,3 @@
-D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.csprojResolveAssemblyReference.cache
-D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.App_GlobalResources.DisplayNames.resources
-D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.App_GlobalResources.ValidationMessages.resources
-D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.csproj.GenerateResource.Cache
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\roslyn\csc.exe
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -59,5 +55,9 @@ D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\in
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\de\System.Web.WebPages.Deployment.resources.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\de\System.Web.WebPages.Razor.resources.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\bin\de\EntityFramework.resources.dll
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.csprojResolveAssemblyReference.cache
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.App_GlobalResources.DisplayNames.resources
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.App_GlobalResources.ValidationMessages.resources
+D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\innovation4austria.web.csproj.GenerateResource.Cache
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\ASP.NET MVC.dll
 D:\Arbeit\Kunden - aktiv\BBRZ\ITCC\LAP Informatiker\ITIN20 - 2016\Applikation\innovation4austria\innovation4austria.web\obj\Debug\ASP.NET MVC.pdb

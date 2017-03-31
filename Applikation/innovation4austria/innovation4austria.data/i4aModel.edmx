@@ -439,8 +439,8 @@
           <Property Name="Order" Type="Int32" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AllRoomFacilities" Relationship="Self.FK_RoomFacilities_Facilities" FromRole="Facilities" ToRole="RoomFacilities" />
-          <Property Name="facilityImage" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="facilityImageActive" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ImageActive" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="LogEntry">
           <Key>
@@ -467,10 +467,10 @@
         </EntityType>
         <EntityType Name="RoomFacility">
           <Key>
-            <PropertyRef Name="ID_Roome" />
+            <PropertyRef Name="ID_Room" />
             <PropertyRef Name="ID_Facility" />
           </Key>
-          <Property Name="ID_Roome" Type="Int32" Nullable="false" />
+          <Property Name="ID_Room" Type="Int32" Nullable="false" />
           <Property Name="ID_Facility" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Facility" Relationship="Self.FK_RoomFacilities_Facilities" FromRole="RoomFacilities" ToRole="Facilities" />
@@ -625,7 +625,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="RoomFacilities">
-              <PropertyRef Name="ID_Roome" />
+              <PropertyRef Name="ID_Room" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -782,8 +782,8 @@
           <EntitySetMapping Name="AllFacilities">
             <EntityTypeMapping TypeName="innovation4austriaModel.Facility">
               <MappingFragment StoreEntitySet="Facilities">
-                <ScalarProperty Name="facilityImageActive" ColumnName="facilityImageActive" />
-                <ScalarProperty Name="facilityImage" ColumnName="facilityImage" />
+                <ScalarProperty Name="ImageActive" ColumnName="facilityImageActive" />
+                <ScalarProperty Name="Image" ColumnName="facilityImage" />
                 <ScalarProperty Name="ID" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="facilityName" />
                 <ScalarProperty Name="Order" ColumnName="orderNumber" />
@@ -817,7 +817,7 @@
           <EntitySetMapping Name="AllRoomFacilities">
             <EntityTypeMapping TypeName="innovation4austriaModel.RoomFacility">
               <MappingFragment StoreEntitySet="RoomFacilities">
-                <ScalarProperty Name="ID_Roome" ColumnName="idRoom" />
+                <ScalarProperty Name="ID_Room" ColumnName="idRoom" />
                 <ScalarProperty Name="ID_Facility" ColumnName="idFacility" />
                 <ScalarProperty Name="Quantity" ColumnName="quantity" />
               </MappingFragment>

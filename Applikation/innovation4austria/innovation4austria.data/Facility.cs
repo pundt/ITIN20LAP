@@ -23,8 +23,8 @@ namespace innovation4austria.data
         public string Name { get; set; }
         public Nullable<int> Order { get; set; }
         public bool Active { get; set; }
-        public byte[] facilityImage { get; set; }
-        public byte[] facilityImageActive { get; set; }
+        public byte[] Image { get; set; }
+        public byte[] ImageActive { get; set; }
     
         public virtual ICollection<RoomFacility> AllRoomFacilities { get; set; }
     }

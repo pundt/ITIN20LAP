@@ -72,6 +72,8 @@
     <Property Name="Order" Type="Int32" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="AllRoomFacilities" Relationship="Self.FK_RoomFacilities_Facilities" FromRole="Facilities" ToRole="RoomFacilities" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ImageActive" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="LogEntry">
     <Key>
@@ -98,10 +100,10 @@
   </EntityType>
   <EntityType Name="RoomFacility">
     <Key>
-      <PropertyRef Name="ID_Roome" />
+      <PropertyRef Name="ID_Room" />
       <PropertyRef Name="ID_Facility" />
     </Key>
-    <Property Name="ID_Roome" Type="Int32" Nullable="false" />
+    <Property Name="ID_Room" Type="Int32" Nullable="false" />
     <Property Name="ID_Facility" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Facility" Relationship="Self.FK_RoomFacilities_Facilities" FromRole="RoomFacilities" ToRole="Facilities" />
@@ -121,6 +123,8 @@
     <NavigationProperty Name="AllBookings" Relationship="Self.FK_Bookings_Room" FromRole="Rooms" ToRole="Bookings" />
     <NavigationProperty Name="Building" Relationship="Self.FK_Room_Building" FromRole="Rooms" ToRole="Buildings" />
     <NavigationProperty Name="AllRoomFacilities" Relationship="Self.FK_RoomFacilities_Room" FromRole="Rooms" ToRole="RoomFacilities" />
+    <Property Name="ID_Type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Type" Relationship="innovation4austriaModel.FK_Room_RoomType" FromRole="Room" ToRole="RoomType" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -254,7 +258,7 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="RoomFacilities">
-        <PropertyRef Name="ID_Roome" />
+        <PropertyRef Name="ID_Room" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -318,5 +322,31 @@
       <End Role="Bills" EntitySet="AllBills" />
       <End Role="BookingDetails" EntitySet="AllBookingDetails" />
     </AssociationSet>
+    <EntitySet Name="AllTypes" EntityType="innovation4austriaModel.Type" />
+    <AssociationSet Name="FK_Room_RoomType" Association="innovation4austriaModel.FK_Room_RoomType">
+      <End Role="RoomType" EntitySet="AllTypes" />
+      <End Role="Room" EntitySet="AllRooms" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Rooms" Relationship="innovation4austriaModel.FK_Room_RoomType" FromRole="RoomType" ToRole="Room" />
+  </EntityType>
+  <Association Name="FK_Room_RoomType">
+    <End Type="innovation4austriaModel.Type" Role="RoomType" Multiplicity="1" />
+    <End Type="innovation4austriaModel.Room" Role="Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="ID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

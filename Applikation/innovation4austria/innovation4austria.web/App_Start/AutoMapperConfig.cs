@@ -32,6 +32,11 @@ namespace innovation4austria.web
         {
             base.CreateMap<User, ProfileDataModel>();
             base.CreateMap<Company, CompanyModel>();
+            base.CreateMap<Building, BuildingModel>();
+            base.CreateMap<Facility, FacilityModel>();
+            base.CreateMap<RoomFacility, RoomFacilityModel>();
+            base.CreateMap<data.Type, TypeModel>();
+            base.CreateMap<Room, SearchResultModel>();
         }
     }
 

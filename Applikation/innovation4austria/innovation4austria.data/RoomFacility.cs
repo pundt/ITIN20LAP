@@ -14,7 +14,7 @@ namespace innovation4austria.data
     
     public partial class RoomFacility
     {
-        public int ID_Roome { get; set; }
+        public int ID_Room { get; set; }
         public int ID_Facility { get; set; }
         public int Quantity { get; set; }
     

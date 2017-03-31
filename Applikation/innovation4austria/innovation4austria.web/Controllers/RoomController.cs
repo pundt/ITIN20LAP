@@ -1,4 +1,6 @@
-﻿using innovation4austria.web.Models;
+﻿using innovation4austria.data;
+using innovation4austria.logic;
+using innovation4austria.web.Models;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -19,17 +21,13 @@ namespace innovation4austria.web.Controllers
             log.Info("GET - Room - Index");
             RoomFilterModel model = new Models.RoomFilterModel();
 
-            // gehe in die Datenbank
-            model.Buildings = new List<BuildingModel>();
-            for (int i = 0; i < 10; i++)
-            {
-                model.Buildings.Add(new BuildingModel()
-                {
-                    ID = i,
-                    Number = "number " + i,
-                    Street = "street " + i
-                });
-            }
+            // get all buildings
+            List<Building> buildings = BuildingAdministration.GetBuildings();
+            model.Buildings = AutoMapperConfig.CommonMapper.Map<List<BuildingModel>>(buildings);
+            List<Facility> facilities = FacilityAdministration.GetFacilities();
+            model.Facilities = AutoMapperConfig.CommonMapper.Map<List<FacilityModel>>(facilities);
+            List<data.Type> types = TypeAdministration.GetRoomTypes();
+            model.Types = AutoMapperConfig.CommonMapper.Map<List<TypeModel>>(types);
 
             return View(model);
         }
@@ -38,17 +36,10 @@ namespace innovation4austria.web.Controllers
         [ValidateAntiForgeryToken()]
         public ActionResult Search(string start, string end, int[] idFacilities, int idBuilding, int idRoomType)
         {
-            log.Info("POST - Room - Search");            
+            log.Info("POST - Room - Search");
 
-            List<SearchResultModel> model = new List<SearchResultModel>();
-            for (int i = 0; i < 10; i++)
-            {
-                model.Add(new SearchResultModel()
-                {
-                    Description = "result" + i,
-                    Room_ID = i
-                });
-            }
+            List<Room> searchResults = RoomAdministration.Search(start, end, idFacilities, idBuilding, idRoomType);
+            List<SearchResultModel> model = AutoMapperConfig.CommonMapper.Map<List<SearchResultModel>>(searchResults);
 
             return PartialView("_Search", model);
         }

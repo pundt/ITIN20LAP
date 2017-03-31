@@ -61,6 +61,8 @@
     <EntitySetMapping Name="AllFacilities">
       <EntityTypeMapping TypeName="innovation4austriaModel.Facility">
         <MappingFragment StoreEntitySet="Facilities">
+          <ScalarProperty Name="ImageActive" ColumnName="facilityImageActive" />
+          <ScalarProperty Name="Image" ColumnName="facilityImage" />
           <ScalarProperty Name="ID" ColumnName="id" />
           <ScalarProperty Name="Name" ColumnName="facilityName" />
           <ScalarProperty Name="Order" ColumnName="orderNumber" />
@@ -94,7 +96,7 @@
     <EntitySetMapping Name="AllRoomFacilities">
       <EntityTypeMapping TypeName="innovation4austriaModel.RoomFacility">
         <MappingFragment StoreEntitySet="RoomFacilities">
-          <ScalarProperty Name="ID_Roome" ColumnName="idRoom" />
+          <ScalarProperty Name="ID_Room" ColumnName="idRoom" />
           <ScalarProperty Name="ID_Facility" ColumnName="idFacility" />
           <ScalarProperty Name="Quantity" ColumnName="quantity" />
         </MappingFragment>
@@ -103,6 +105,7 @@
     <EntitySetMapping Name="AllRooms">
       <EntityTypeMapping TypeName="innovation4austriaModel.Room">
         <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="ID_Type" ColumnName="idRoomType" />
           <ScalarProperty Name="ID" ColumnName="id" />
           <ScalarProperty Name="ID_Building" ColumnName="idBuilding" />
           <ScalarProperty Name="Size" ColumnName="size" />
@@ -135,5 +138,14 @@
         <ScalarProperty Name="ID" ColumnName="idBookingDetail" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="AllTypes">
+      <EntityTypeMapping TypeName="innovation4austriaModel.Type">
+        <MappingFragment StoreEntitySet="RoomType">
+          <ScalarProperty Name="Active" ColumnName="active" />
+          <ScalarProperty Name="Name" ColumnName="roomType" />
+          <ScalarProperty Name="ID" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

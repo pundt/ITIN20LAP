@@ -67,6 +67,8 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="facilityName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="orderNumber" Type="int" />
+    <Property Name="facilityImage" Type="varbinary(max)" />
+    <Property Name="facilityImageActive" Type="varbinary(max)" />
     <Property Name="active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Log">
@@ -104,11 +106,20 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idBuilding" Type="int" Nullable="false" />
     <Property Name="size" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="pricePerDay" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="roomName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="orderNumber" Type="int" />
+    <Property Name="idBuilding" Type="int" Nullable="false" />
+    <Property Name="idRoomType" Type="int" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoomType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roomType" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
@@ -220,6 +231,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Room_RoomType">
+    <End Role="RoomType" Type="Self.RoomType" Multiplicity="1" />
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Rooms">
+        <PropertyRef Name="idRoomType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RoomFacilities_Facilities">
     <End Role="Facilities" Type="Self.Facilities" Multiplicity="1" />
     <End Role="RoomFacilities" Type="Self.RoomFacilities" Multiplicity="*" />
@@ -280,6 +303,7 @@
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoomFacilities" EntityType="Self.RoomFacilities" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomType" EntityType="Self.RoomType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_BillDetails_Bill" Association="Self.FK_BillDetails_Bill">
       <End Role="Bills" EntitySet="Bills" />
@@ -311,6 +335,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Room_Building" Association="Self.FK_Room_Building">
       <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="Rooms" EntitySet="Rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_RoomType" Association="Self.FK_Room_RoomType">
+      <End Role="RoomType" EntitySet="RoomType" />
       <End Role="Rooms" EntitySet="Rooms" />
     </AssociationSet>
     <AssociationSet Name="FK_RoomFacilities_Facilities" Association="Self.FK_RoomFacilities_Facilities">

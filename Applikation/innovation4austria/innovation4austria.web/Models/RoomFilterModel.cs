@@ -11,5 +11,7 @@ namespace innovation4austria.web.Models
         public List<FacilityModel> Facilities{ get; set; }
 
         public List<BuildingModel> Buildings { get; set;  }
+
+        public List<TypeModel> Types { get; set; }
     }
 }

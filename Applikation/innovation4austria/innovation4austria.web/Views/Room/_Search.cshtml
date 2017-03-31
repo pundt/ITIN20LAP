@@ -3,17 +3,114 @@
     ViewBag.Title = "_Search";
 }
 
-<h2>_Search</h2>
-@if (Model != null && Model.Count() > 0)
-{
-
-    foreach (var searchResult in Model)
+<div id="lines">
+    @if (Model != null && Model.Count() > 0)
     {
-        @searchResult.Description <br />
+        <div class="row">
+            <div class="col-xs-2">Standort</div>
+            <div class="col-xs-2">Raum</div>
+            <div class="col-xs-2">Preis / Tag</div>
+            <div class="col-xs-2">Art</div>
+            <div class="col-xs-2">Ausstattung</div>
+            <div class="col-xs-2"></div>
+        </div>
+
+        <div class="row">
+            @foreach (var room in Model)
+            {
+                <div class="col-xs-2">
+                    @room.Building.Label
+                </div>
+                <div class="col-xs-2">
+                    @room.RoomName
+                </div>
+
+                <div class="col-xs-2">
+                    @room.PricePerDay
+                </div>
+
+                <div class="col-xs-2">
+                    @room.Type.Name
+                </div>
+
+                <div class="col-xs-2">
+                    @if (room.AllRoomFacilities != null)
+                    {
+                        foreach (var roomFacility in room.AllRoomFacilities)
+                        {
+                            @roomFacility.Quantity<text>&nbsp;</text>@roomFacility.Facility.Name<text>,</text>
+                        }
+                    }
+                </div>
+
+                <div class="col-xs-2">
+                    Buchen
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-xs-12">
+                Bitte wählen Sie andere Parameter um Suchtreffer zu erhalten!
+            </div>
+        </div>
     }
 
-}
-else
-{
-    <text>bin noch leer!</text>
-}
+</div>
+
+<div id="cards">
+    <div class="row">
+        @if (Model != null && Model.Count() > 0)
+        {
+            foreach (var room in Model)
+            {
+                <div class="card col-xs-4">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">@room.RoomName</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <img src="~/Content/img/team1.png" style="width:150px" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">Preis</div>
+                        <div class="col-xs-6 text-left">@room.PricePerDay €/Tag</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">Standort</div>
+                        <div class="col-xs-6 text-left">@room.Building.Label</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">Art</div>
+                        <div class="col-xs-6 text-left">@room.Type.Name</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            @if (room.AllRoomFacilities != null)
+                            {
+                                foreach (var roomFacility in room.AllRoomFacilities)
+                                {
+                                    @roomFacility.Quantity<text>&nbsp;</text>@roomFacility.Facility.Name<text>, </text>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            Buchen
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-xs-12">
+                Bitte wählen Sie andere Parameter um Suchtreffer zu erhalten!
+            </div>
+        }
+    </div>
+</div>

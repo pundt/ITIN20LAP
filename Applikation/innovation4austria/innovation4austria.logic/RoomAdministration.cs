@@ -28,11 +28,11 @@ namespace innovation4austria.logic
 
             DateTime startValue, endValue;
 
-            if (string.IsNullOrEmpty(start) || DateTime.TryParse(start, out startValue))
+            if (string.IsNullOrEmpty(start) || !DateTime.TryParse(start, out startValue))
             {
                 throw new ArgumentException("Invalid Value", nameof(start));
             }
-            else if (string.IsNullOrEmpty(end) || DateTime.TryParse(end, out endValue))
+            else if (string.IsNullOrEmpty(end) || !DateTime.TryParse(end, out endValue))
             {
                 throw new ArgumentException("Invalid Value", nameof(end));
             }
@@ -59,6 +59,10 @@ namespace innovation4austria.logic
                         
                         // filter by building and type if given
                         availableRooms = context.AllRooms
+                            .Include("Building")
+                            .Include("Type")
+                            .Include("AllRoomFacilities")
+                            .Include("AllRoomFacilities.Facility")
                             .Where(x => 
                                 (!idBuilding.HasValue || x.ID_Building == idBuilding) &&
                                 (!idType.HasValue || x.ID_Type == idType)

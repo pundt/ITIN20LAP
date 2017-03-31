@@ -9,7 +9,9 @@ namespace innovation4austria.web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery-ui-{version}.js",
+                        "~/Scripts/datepicker-de.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -30,7 +32,8 @@ namespace innovation4austria.web
                 "~/Content/css/bootstrap.css",
                 "~/Content/css/font-awesome.min.css",
                 "~/Content/css/style.css",
-                "~/Content/css/toastr.min.css"));
+                "~/Content/css/toastr.min.css",
+                "~/Content/css/jqueryui/base/all.css"));
         }
     }
 }

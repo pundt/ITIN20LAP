@@ -7,48 +7,104 @@
 <!-- Filter -->
 @using (Ajax.BeginForm("Search", "Room", new AjaxOptions()
 {
-   UpdateTargetId = "result"
+    UpdateTargetId = "result",
+    OnSuccess = "hideLines"
 }))
 {
     @Html.AntiForgeryToken()
-    <text>
-    start <input type="date" name="start"/><br/>
 
-    ende <input type="date" name="end" /><br />
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Raumsuche</h1>
+        </div>
+    </div>
 
-    Ausstattung<br/>
- <input type="checkbox" name="idFacilities" value="1" />WLAN<br />
-<input type="checkbox" name="idFacilities" value="2" />Beamer<br />
-<input type="checkbox" name="idFacilities" value="3" />Computer<br />
-<input type="checkbox" name="idFacilities" value="4" />Sessel<br />
+    <div class="row">
+        <div class="col-xs-2">
+            Start-Datum
+        </div>
+        <div class="col-xs-3">
+            <input class="form-control" type="text" name="start" id="start" />
+        </div>
+        <div class="col-xs-offset-1 col-xs-2">
+            End-Datum
+        </div>
+        <div class="col-xs-3">
+            <input class="form-control" type="text" name="end" id="end" />
+        </div>
+    </div>
 
-Standort @*<select name="idBuilding">
-    <option value="1">Linz</option>
-    <option value="2">Wien</option>
-    </select>*@
+    <div class="row">
+        <div class="col-xs-2">
+            Ausstattungen
+        </div>
+        <div class="col-xs-10">
+            @foreach (var facility in Model.Facilities)
+            {
+                <input type="checkbox" name="idFacilities" value="@facility.ID" /><text>&nbsp;</text>@facility.Name <text>&nbsp; &nbsp;</text>
+            }
+        </div>
+    </div>
 
-@Html.DropDownList("idBuilding", new SelectList(Model.Buildings,"ID", "Label"))
+    <div class="row">
+        <div class="col-xs-2">
+            Standort
+        </div>
 
-    Art <select name="idRoomType">
-    <option value="1">Seminarraum</option>
-    <option value="2">Konferenzraum</option>
-</select>
-<br/>
-<input type="submit" value="Suchen"/>
-</text>
+        <div class="col-xs-3">
+            @Html.DropDownList("idBuilding", new SelectList(Model.Buildings, "ID", "Label"), new { @class = "form-control" })
+        </div>
+        <div class="col-xs-offset-1 col-xs-2">
+            Raumart
+        </div>
+        <div class="col-xs-3">
+            @Html.DropDownList("idRoomType", new SelectList(Model.Types, "ID", "Name"), new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <input class="btn btn-primary btn-lg" type="submit" value="Suchen" />
+        </div>
+    </div>
 }
-
-<!-- von, bis, art-->
-
-<!-- Ausstattung -->
 
 
 <!-- Suchtreffer -->
-
 <!-- Suchtreffer Cards -->
-
-
 <!-- Suchtreffer List -->
-<div id="result">
-    @Html.Partial("_Search", new List<innovation4austria.web.Models.SearchResultModel>() )
+
+<div class="row">
+    <div class="col-xs-3">
+        <h2>Suchergebnisse</h2>
+    </div>
+    <div class="col-xs-9 text-right">
+        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+    </div>
 </div>
+<div id="result">
+    @Html.Partial("_Search", new List<innovation4austria.web.Models.SearchResultModel>())
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#start, #end").datepicker();
+            hideLines();
+
+            $(".glyphicon-th-list").click(function () {
+                $("#lines").show();
+                $("#cards").hide();
+            })
+            $(".glyphicon-th-large").click(function () {
+                $("#lines").hide();
+                $("#cards").show();
+            })
+        });
+        function hideLines() {
+            $("#lines").hide();
+        }
+    </script>
+}
