@@ -19,5 +19,12 @@ namespace innovation4austria.web
             public const string INNOVATION4AUSTRIA = "innovation4austria";
             public const string STARTUP = "startup";
         }
+
+        public class Fields
+        {
+            public const string ID_ROOM = "idRoom";
+            public const string START = "start";
+            public const string END = "end";
+        }
     }
 }

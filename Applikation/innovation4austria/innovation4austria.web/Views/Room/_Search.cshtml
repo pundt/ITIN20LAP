@@ -3,6 +3,8 @@
     ViewBag.Title = "_Search";
 }
 
+
+
 <div id="lines">
     @if (Model != null && Model.Count() > 0)
     {
@@ -15,39 +17,46 @@
             <div class="col-xs-2"></div>
         </div>
 
-        <div class="row">
-            @foreach (var room in Model)
-            {
-                <div class="col-xs-2">
-                    @room.Building.Label
-                </div>
-                <div class="col-xs-2">
-                    @room.RoomName
-                </div>
+            <div class="row">
+                @foreach (var room in Model)
+                {
+                    <div class="col-xs-2">
+                        @room.Building.Label
+                    </div>
+                    <div class="col-xs-2">
+                        @room.RoomName
+                    </div>
 
-                <div class="col-xs-2">
-                    @room.PricePerDay
-                </div>
+                    <div class="col-xs-2">
+                        @room.PricePerDay
+                    </div>
 
-                <div class="col-xs-2">
-                    @room.Type.Name
-                </div>
+                    <div class="col-xs-2">
+                        @room.Type.Name
+                    </div>
 
-                <div class="col-xs-2">
-                    @if (room.AllRoomFacilities != null)
-                    {
-                        foreach (var roomFacility in room.AllRoomFacilities)
+                    <div class="col-xs-2">
+                        @if (room.AllRoomFacilities != null)
                         {
-                            @roomFacility.Quantity<text>&nbsp;</text>@roomFacility.Facility.Name<text>,</text>
+                            foreach (var roomFacility in room.AllRoomFacilities)
+                            {
+                                @roomFacility.Quantity<text>&nbsp;</text>@roomFacility.Facility.Name<text>,</text>
+                            }
                         }
-                    }
-                </div>
+                    </div>
 
-                <div class="col-xs-2">
-                    Buchen
-                </div>
-            }
-        </div>
+                    <div class="col-xs-2">
+                        @using (Html.BeginForm("Confirmation", "Room", FormMethod.Post))
+                        {
+                            <input type="hidden" name="start" value="@(ViewBag.Start)"/>
+                            <input type="hidden" name="end" value="@(ViewBag.End)" />                            
+                            @Html.Hidden("idRoom", room.ID)
+
+                            <button type="submit" class="btn btn-primary btn-md">Buchen</button>
+                        }
+                    </div>
+                }
+            </div>
     }
     else
     {
@@ -63,44 +72,53 @@
 <div id="cards">
     <div class="row">
         @if (Model != null && Model.Count() > 0)
-        {
-            foreach (var room in Model)
             {
-                <div class="card col-xs-4">
-                    <div class="row">
-                        <div class="col-xs-12 text-center">@room.RoomName</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 text-center">
-                            <img src="~/Content/img/team1.png" style="width:150px" />
+                foreach (var room in Model)
+                {
+                <div class="col-xs-4">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-xs-12 text-center">@room.RoomName</div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Preis</div>
-                        <div class="col-xs-6 text-left">@room.PricePerDay €/Tag</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Standort</div>
-                        <div class="col-xs-6 text-left">@room.Building.Label</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Art</div>
-                        <div class="col-xs-6 text-left">@room.Type.Name</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            @if (room.AllRoomFacilities != null)
-                            {
-                                foreach (var roomFacility in room.AllRoomFacilities)
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <img src="~/Content/img/team1.png" class="card-image"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">Preis</div>
+                            <div class="col-xs-6 text-left">@room.PricePerDay €/Tag</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">Standort</div>
+                            <div class="col-xs-6 text-left">@room.Building.Label</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">Art</div>
+                            <div class="col-xs-6 text-left">@room.Type.Name</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                @if (room.AllRoomFacilities != null)
                                 {
-                                    @roomFacility.Quantity<text>&nbsp;</text>@roomFacility.Facility.Name<text>, </text>
+                                    foreach (var roomFacility in room.AllRoomFacilities)
+                                    {
+                                        @roomFacility.Quantity<text>&nbsp;</text>@roomFacility.Facility.Name<text>, </text>
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 text-center">
-                            Buchen
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                @using (Html.BeginForm("Confirmation", "Room", FormMethod.Post))
+                                {
+                                    <input type="hidden" name="start" value="@(ViewBag.Start)" />
+                                    <input type="hidden" name="end" value="@(ViewBag.End)" />
+                                    @Html.Hidden("idRoom", room.ID)
+
+                                    <button type="submit" class="btn btn-primary btn-lg">Buchen</button>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

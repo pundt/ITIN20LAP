@@ -97,6 +97,15 @@ namespace innovation4austria.web.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ungültige Raum-Nummer! ähnelt.
+        /// </summary>
+        public static string InvalidRoomId {
+            get {
+                return ResourceManager.GetString("InvalidRoomId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Anmelden. Benutzername oder Passwort falsch! ähnelt.
         /// </summary>
         public static string LogonDataInvalid {

@@ -13,6 +13,41 @@ namespace innovation4austria.logic
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
+        /// Returns a room with all necessary data according to given ID
+        /// </summary>
+        /// <param name="id">the ID of the room to look for</param>
+        /// <returns>Returns a room with all necessary data according to given ID</returns>
+        public static Room Get(int id)
+        {
+            log.Info("Get(id)");
+            Room room = null;
+
+            using (var context = new innovation4austriaEntities())
+            {
+                try
+                {
+
+                    // filter by building and type if given
+                    room = context.AllRooms
+                        .Include("Building")
+                        .Include("Type")
+                        .Include("AllRoomFacilities")
+                        .Include("AllRoomFacilities.Facility")
+                        .Where(x => x.ID == id)
+                        .FirstOrDefault();
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Exception in Get", ex);
+                    if (ex.InnerException != null)
+                        log.Error("Exception in Get (inner)", ex.InnerException);
+                    throw;
+                }
+            }
+            return room;
+        }
+
+        /// <summary>
         /// Looks for rooms according to given filter criteria. Returns list of rooms
         /// </summary>
         /// <param name="start">required booking start date</param>
@@ -20,7 +55,7 @@ namespace innovation4austria.logic
         /// <param name="idFacilities"></param>
         /// <param name="idBuilding"></param>
         /// <param name="idType"></param>
-        /// <returns></returns>
+        /// <returns>List of rooms according to given filter criteria</returns>
         public static List<Room> Search(string start, string end, int[] idFacilities, int? idBuilding, int? idType)
         {
             log.Info("SaveCompanyData(companyId, companyName, street, number, zip, city)");

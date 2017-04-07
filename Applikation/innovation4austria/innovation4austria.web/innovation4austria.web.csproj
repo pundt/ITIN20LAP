@@ -131,6 +131,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Models\BuildingModel.cs" />
     <Compile Include="Models\CompanyDetailModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\ConfirmationModel.cs" />
     <Compile Include="Models\CreateEmployeeModel.cs" />
     <Compile Include="Models\FacilityModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -279,9 +281,11 @@
     <Content Include="Views\Company\CreateEmployee.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\Room\_Search.cshtml" />
+    <Content Include="Views\Room\Confirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Booking\" />
     <Folder Include="Views\Validation\" />
   </ItemGroup>
   <ItemGroup>

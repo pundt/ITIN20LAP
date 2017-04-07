@@ -1,0 +1,90 @@
+﻿@model innovation4austria.web.Models.ConfirmationModel
+
+@{
+    ViewBag.Title = "Confirmation";
+}
+
+
+@using (Html.BeginForm("Booking", "Room", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(x => x.Room.ID)
+    @Html.HiddenFor(x => x.Start)
+    @Html.HiddenFor(x => x.End)
+
+    <div class="row">
+        <h3 class="col-xs-12">Buchung bestätigen</h3>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            Firma
+        </div>
+        <div class="col-xs-4">
+            @Html.DropDownList("idCompany", new SelectList(Model.Companies, "ID", "Name"),  new { @class="form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            Gebäude
+        </div>
+        <div class="col-xs-9">
+            @Model.Room.Building.Label
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            Raum
+        </div>
+        <div class="col-xs-9">
+            @Model.Room.RoomName
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            Preis / Tag
+        </div>
+        <div class="col-xs-9">
+            @(double.Parse(Model.Room.PricePerDay).ToString("C2"))
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            Start
+        </div>
+        <div class="col-xs-9">
+            @Model.Start.ToShortDateString()
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            Ende
+        </div>
+        <div class="col-xs-9">
+            @Model.End.ToShortDateString()
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            Gesamtpreis
+        </div>
+        <div class="col-xs-9">
+            @((Model.End.Subtract(Model.Start).TotalDays * double.Parse(Model.Room.PricePerDay)).ToString("C2"))
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <input type="checkbox" class="" />Ich habe die <a href="www.google.at">AGBs</a> gelesen und aktzeptiert.<br/>
+            <input type="checkbox" class="" />Ich habe die <a href="www.google.at">Datenschutzbestimmungen</a> gelesen und aktzeptiert.<br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <a href="@Url.Action("Index","Room")" class="btn btn-primary btn-lg">Zurück</a>
+        </div>
+        <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-lg">Jetzt buchen!</button>
+        </div>
+    </div>
+}

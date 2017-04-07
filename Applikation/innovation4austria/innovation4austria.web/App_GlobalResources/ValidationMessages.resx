@@ -129,6 +129,9 @@
   <data name="DataTypeMail" xml:space="preserve">
     <value>Ungültige Mail</value>
   </data>
+  <data name="InvalidRoomId" xml:space="preserve">
+    <value>Ungültige Raum-Nummer!</value>
+  </data>
   <data name="LogonDataInvalid" xml:space="preserve">
     <value>Fehler beim Anmelden. Benutzername oder Passwort falsch!</value>
   </data>

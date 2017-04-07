@@ -221,8 +221,24 @@ h1 {
     font-size: 30px;
 }
 
+.glyphicon.glyphicon-th-large:hover,
+.glyphicon.glyphicon-th-list:hover {
+    cursor: hand;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     h1, div.title {
         font-size: 26px;
     }
+}
+
+#cards .card:nth-of-type(odd) {
+    border: 1px solid #7eb9f8;
+    border-radius: 80px 0 80px 0;
+    padding-left: 15px;
+}
+
+.card-image {
+    border-radius: 5px;
+    max-width: 150px;
 }
