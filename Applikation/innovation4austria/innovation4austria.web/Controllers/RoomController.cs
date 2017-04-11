@@ -78,27 +78,42 @@ namespace innovation4austria.web.Controllers
             return result;
         }
 
+        /// <summary>
+        /// In case user is in role "innovation4austria" - idCompany !=null
+        /// if user is in role "startup" idCompany = null
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="idRoom"></param>
+        /// <param name="idCompany"></param>
+        /// <returns></returns>
         [HttpPost]
-        public ActionResult Booking(string start, string end, int idRoom)
-        {
-            log.Info("POST - Room - Booking");
-
-            /// booking for company currently logged on
-
-            /// redirect to room overview/search
-
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Booking(string start, string end, int idRoom, int idCompany)
+        public ActionResult Booking(string start, string end, int idRoom, int? idCompany)
         {
             log.Info("POST - Room - Booking");
 
             /// booking for selected company
+            string username = User.Identity.Name;
+            User user = UserAdministration.GetUser(username);
+            DateTime startDate, endDate;
+            if (DateTime.TryParse(start, out startDate) && DateTime.TryParse(end, out endDate))
+            {
 
+                if (BookingAdministration.BookRoom(user.ID, idRoom, idCompany, startDate, endDate))
+                {
+                    TempData[Constants.Messages.SUCCESS] = ValidationMessages.BookingSuccess;
+                }
+                else
+                {
+                    TempData[Constants.Messages.ERROR] = ValidationMessages.BookingError;
+                }
+            }
+            else
+            {
+                TempData[Constants.Messages.ERROR] = ValidationMessages.InvalidDate;
+            }
 
-            return View();
+            return RedirectToAction("Index", "Room");
         }
     }
 }

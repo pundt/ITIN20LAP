@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingAdministration.cs" />
     <Compile Include="BuildingAdministration.cs" />
     <Compile Include="FacilityAdministration.cs" />
     <Compile Include="Helper.cs" />

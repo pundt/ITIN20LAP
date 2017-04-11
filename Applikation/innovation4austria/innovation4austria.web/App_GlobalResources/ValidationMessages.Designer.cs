@@ -61,6 +61,24 @@ namespace innovation4austria.web.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Speichern der Buchung! ähnelt.
+        /// </summary>
+        public static string BookingError {
+            get {
+                return ResourceManager.GetString("BookingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Buchung gespeichert! ähnelt.
+        /// </summary>
+        public static string BookingSuccess {
+            get {
+                return ResourceManager.GetString("BookingSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ungültige Daten beim Ändern der Firmen-Daten! ähnelt.
         /// </summary>
         public static string CompanyDataInvalid {
@@ -93,6 +111,15 @@ namespace innovation4austria.web.App_GlobalResources {
         public static string DataTypeMail {
             get {
                 return ResourceManager.GetString("DataTypeMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ungültiges Datum! ähnelt.
+        /// </summary>
+        public static string InvalidDate {
+            get {
+                return ResourceManager.GetString("InvalidDate", resourceCulture);
             }
         }
         

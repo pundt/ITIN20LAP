@@ -8,22 +8,24 @@
 @using (Html.BeginForm("Booking", "Room", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-
-    @Html.HiddenFor(x => x.Room.ID)
-    @Html.HiddenFor(x => x.Start)
-    @Html.HiddenFor(x => x.End)
+    <input type="hidden" value="@Model.Room.ID" name="idRoom" />
+    <input type="hidden" value="@Model.Start" name="start" />
+    <input type="hidden" value="@Model.End" name="end" />
 
     <div class="row">
         <h3 class="col-xs-12">Buchung bestätigen</h3>
     </div>
-    <div class="row">
-        <div class="col-xs-3">
-            Firma
+    if (User.IsInRole(Constants.Roles.INNOVATION4AUSTRIA))
+    {
+        <div class="row">
+            <div class="col-xs-3">
+                Firma
+            </div>
+            <div class="col-xs-4">
+                @Html.DropDownList("idCompany", new SelectList(Model.Companies, "ID", "Name"), new { @class = "form-control" })
+            </div>
         </div>
-        <div class="col-xs-4">
-            @Html.DropDownList("idCompany", new SelectList(Model.Companies, "ID", "Name"),  new { @class="form-control" })
-        </div>
-    </div>
+    }
     <div class="row">
         <div class="col-xs-3">
             Gebäude
@@ -75,7 +77,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <input type="checkbox" class="" />Ich habe die <a href="www.google.at">AGBs</a> gelesen und aktzeptiert.<br/>
+            <input type="checkbox" class="" />Ich habe die <a href="www.google.at">AGBs</a> gelesen und aktzeptiert.<br />
             <input type="checkbox" class="" />Ich habe die <a href="www.google.at">Datenschutzbestimmungen</a> gelesen und aktzeptiert.<br />
         </div>
     </div>
