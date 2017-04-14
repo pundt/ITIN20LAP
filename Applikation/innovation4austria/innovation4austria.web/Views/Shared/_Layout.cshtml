@@ -10,6 +10,7 @@
     <title>@ViewBag.Title</title>
 
     @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -37,39 +38,48 @@
                         <li class="@{
                             if (Request.Url.ToString().Contains(Url.Action("Dashboard", "User")))
                             {
-                                <text>active</text> 
+                                <text>active</text>
                             }
                             }"><a href="@Url.Action("Dashboard", "User")">Dashboard</a></li>
-                        if (User.IsInRole(Constants.Roles.INNOVATION4AUSTRIA))
-                        {
-                            <li class="@{
+    if (User.IsInRole(Constants.Roles.INNOVATION4AUSTRIA))
+    {
+        <li class="@{
                                 if (Request.Url.ToString().Contains("/Company/"))
                                 {
-                                    <text>active</text> 
+                                    <text>active</text>
                                 }
                             }"><a href="@Url.Action("Index", "Company")">Firmen</a></li>
-                        }
-                        <li class="@{
+    }
+    if (User.IsInRole(Constants.Roles.INNOVATION4AUSTRIA))
+    {
+        <li class="@{
+                                if (Request.Url.ToString().Contains("/Invoice/"))
+                                {
+                                    <text>active</text>
+                                }
+                            }"><a href="@Url.Action("Index", "Invoice")">Rechnungen</a></li>
+    }
+    <li class="@{
                                 if (Request.Url.ToString().Contains("/Room/"))
                                 {
-                                    <text>active</text> 
+                                    <text>active</text>
                                 }
                             }"><a href="@Url.Action("Index", "Room")">Räume</a></li>
-                        <li class="@{
+                            <li class="@{
                                 if (Request.Url.ToString().Contains(Url.Action("ProfileData", "User")))
                                 {
-                                    <text>active</text> 
+                                    <text>active</text>
                                 }
                             }"><a href="@Url.Action("ProfileData", "User")">Profil</a></li>
                         <!-- class active !!! -->
-                        <li class="">
-                            <a href="#" onclick="document.getElementById('logoutform').submit();">Abmelden</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="active"><a href="@Url.Action("Login", "User")">Anmelden</a></li>
-                    }
+                            <li class="">
+                                <a href="#" id="logout" onclick="document.getElementById('logoutform').submit();">Abmelden</a>
+                            </li>
+    }
+    else
+    {
+        <li class="active"><a href="@Url.Action("Login", "User")">Anmelden</a></li>
+    }
                 </ul>
             </div>
 
